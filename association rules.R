@@ -1,7 +1,9 @@
 library("arules")
 library("arulesViz")
 
-load("titanic.raw.rdata")
+load("data/titanic.raw.rdata")
+
+titanic.raw
 
 rules <- apriori(titanic.raw,
   parameter = list(minlen=2, supp=0.005, conf=0.8),
@@ -28,4 +30,3 @@ plot(subrules2, method="graph") # graph
 plot(rules, method="grouped") # matrix
 
 # saveAsGraph(head(sort(rules, by="lift"),20), file="rules.graphml")
-
