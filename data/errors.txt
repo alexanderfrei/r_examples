@@ -1,8 +1,0 @@
-AGE	NAME	HEIGHT
-23	John	172
-24	Kate	163
-23		161
-56	Lucy	16.1
-12	Penny	132
-a	Sasha	155
-22	John	183

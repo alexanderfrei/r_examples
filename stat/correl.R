@@ -18,3 +18,5 @@ barplot(corr$a8_1, names.arg = corr$nm, las=2)
 
 # pairs(cor_1)
 
+library(corrplot)
+corrplot.mixed(cor(cor_1))
