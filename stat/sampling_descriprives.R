@@ -19,6 +19,39 @@ write.file(describe(store.df), file="output.txt")
 out <- capture.output(describe(store.df))
 cat("", out, file="output/describe.txt", fill = T)
 
+### by() and aggregate()
+
+country <- aggregate(store.df$p1sales,
+                     by=list(country=store.df$country, store.df$Year), mean)
+names(country) <- c("country","year","sales.mean")
+
+# 
+# by(store.df$p1sales, store.df$country, mean)
+# by(store.df$p1sales, list(store.df$country, store.df$Year), mean)
+
+
+### qq check for normality
+qqnorm(store.df$p1sales)
+qqline(store.df$p1sales)
+
+### is more normal with log()
+qqnorm(log(store.df$p1sales))
+qqline(log(store.df$p1sales))
+
+### ecdf cumulative distribution plot
+
+plot(ecdf(store.df$p1sales),
+     main="Cumulative distribution of P1 Weekly Sales",
+     ylab="Cumulative Proportion",
+     xlab=c("P1 weekly sales, all stores", "90% of weeks sold <= 171 units"),
+     yaxt="n")
+axis(side=2, at=seq(0, 1, by=0.1), las=1, 
+     labels=paste(seq(0,100,by=10), "%", sep=""))
+abline(h=0.9, lty=3)
+abline(v=quantile(store.df$p1sales, pr=0.9), lty=3)
+
+
+
 ####################################
 
 ############
@@ -81,55 +114,3 @@ head(store.df)
 # to write it out to a CSV
 # write.csv(store.df, file="data/to_describe.csv",row.names=FALSE)
 #
-
-
-
-### qq check for normality
-qqnorm(store.df$p1sales)
-qqline(store.df$p1sales)
-
-### is more normal with log()
-qqnorm(log(store.df$p1sales))
-qqline(log(store.df$p1sales))
-
-
-### ecdf cumulative distribution plot
-
-plot(ecdf(store.df$p1sales),
-     main="Cumulative distribution of P1 Weekly Sales",
-     ylab="Cumulative Proportion",
-     xlab=c("P1 weekly sales, all stores", "90% of weeks sold <= 171 units"),
-     yaxt="n")
-axis(side=2, at=seq(0, 1, by=0.1), las=1, 
-     labels=paste(seq(0,100,by=10), "%", sep=""))
-# add lines for 90%
-abline(h=0.9, lty=3)
-abline(v=quantile(store.df$p1sales, pr=0.9), lty=3)
-
-
-
-### by() and aggregate()
-by(store.df$p1sales, store.df$storeNum, mean)
-by(store.df$p1sales, list(store.df$storeNum, store.df$Year), mean)
-
-aggregate(store.df$p1sales, by=list(country=store.df$country), sum)
-
-
-############
-# world map 
-
-p1sales.sum <- aggregate(store.df$p1sales, 
-                         by=list(country=store.df$country), sum)
-
-# install.packages(c("rworldmap", "RColorBrewer"))
-library(rworldmap)
-library(RColorBrewer)
-
-# create map
-p1sales.map <- joinCountryData2Map(p1sales.sum, joinCode = "ISO2", 
-                                   nameJoinColumn = "country")
-
-mapCountryData(p1sales.map, nameColumnToPlot="x", 
-               mapTitle="Total P1 sales by Country",
-               colourPalette=brewer.pal(7, "Blues"), 
-               catMethod="fixedWidth", addLegend=F)

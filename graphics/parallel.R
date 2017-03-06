@@ -14,9 +14,7 @@ for (i in 1:length(education$state)){
   reading_colors <- c(reading_colors,col)
 }
 
-pdf("graph/result/parallel.pdf", family="URWPalladio", encoding="CP1251.enc",
+pdf("graphics/result/parallel.pdf", family="URWPalladio", encoding="CP1251.enc",
     width = 10, height = 7)
 parallelplot(education[,2:7], horizontal.axis = F, col=reading_colors)
 dev.off()
-
-

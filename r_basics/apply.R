@@ -1,4 +1,4 @@
-store.df <- read.csv("data/to_describe.csv")  # only if you skip the simulation
+store.df <- read.csv("data/to_describe.csv")
 
 # apply()
 apply(store.df[, 2:9], MARGIN=2, FUN=mean)
@@ -12,3 +12,4 @@ rownames(mysummary2.df) <- names(store.df)[4:5] # names from the data frame
 mysummary2.df[, "Median Sales"] <- apply(store.df[, 4:5], 2, median)
 mysummary2.df[, "IQR"]          <- apply(store.df[, 4:5], 2, IQR)
 mysummary2.df
+
