@@ -13,3 +13,7 @@ xyplot(Sepal.Length ~ Petal.Length + Petal.Width | Species,
        grid = TRUE, 
        par.settings = my.settings)
        # type = c("p", "smooth"), col.line = "darkorange", lwd = 3)
+
+####### by 2 factors
+seg.df <- read.csv("data/seg.csv")
+histogram(~subscribe | Segment + ownHome, data=seg.df)

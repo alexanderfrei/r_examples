@@ -13,3 +13,6 @@ mysummary2.df[, "Median Sales"] <- apply(store.df[, 4:5], 2, median)
 mysummary2.df[, "IQR"]          <- apply(store.df[, 4:5], 2, IQR)
 mysummary2.df
 
+#### get all numeric columns
+store.df[sapply(store.df,is.numeric)]
+

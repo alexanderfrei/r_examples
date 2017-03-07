@@ -1,4 +1,12 @@
 
+seg.df <- read.csv("data/seg.csv")
+store.df <- read.csv("data/to_describe.csv")
+
+# by group
+library(lattice)
+histogram(~income | Segment, data=seg.df, breaks = 10)
+
+# standart
 hist(store.df$p1sales, 
      main="Product 1 Weekly Sales Frequencies, All Stores",
      xlab="Product 1 Sales (Units)",

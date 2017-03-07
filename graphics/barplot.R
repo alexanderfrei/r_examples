@@ -19,4 +19,16 @@ barplot(hotdogs$Dogs.eaten, names.arg = hotdogs$Year, col = fill_colors, space=0
         main = "Результаты Нейтановского турнира\n по поеданию хот-догов, 1980-2010")
 dev.off()
 
+#### proportions by factor
+seg.df <- read.csv("data/seg.csv")
+# prop.table(table(seg.df$subscribe, seg.df$Segment),margin = 2)
+barchart(prop.table(table(seg.df$subscribe, seg.df$Segment), margin=2)[2, ], 
+         xlab="Subscriber proportion by Segment", col="darkolivegreen")
 
+#### income = Y, Segment = X, ownHome = group
+#### barchart by group
+seg.income.agg <- aggregate(income ~ Segment + ownHome, data=seg.df, mean)
+barchart(income ~ Segment, data=seg.income.agg, 
+         groups=ownHome, auto.key=TRUE,
+         par.settings = simpleTheme(col=c("gray95", "gray50"))   # try rainbow, topo.colors, heat.colors, cm.colors
+)
