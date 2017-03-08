@@ -1,2 +1,1 @@
-chapter 9
-..
+chapter 9/ Hierarchical linear model
