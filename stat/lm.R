@@ -25,14 +25,13 @@ x <- rnorm(500)
 y <- x^2 + rnorm(500)
 toy.model <- lm(y~x)
 
-#residuals
+#### residuals
 plot(y~x)
 abline(toy.model, col='blue')
 plot(toy.model$fitted.values, toy.model$residuals)
-#check model assumptions
+# check model assumptions
 par(mfrow=c(2,2))
 plot(m1)
-
 
 # Fitting a model with many predictors
 m2 <- lm(overall ~ rides + games + wait + clean, data=sat.df)
@@ -44,41 +43,27 @@ coefplot(m2, intercept=FALSE, outerCI=1.96, lwdOuter=1.5,
          ylab="Rating of Feature", 
          xlab="Association with Overall Satisfaction")
 
-# Comparing Models
+#### Comparing Models
 plot(sat.df$overall, fitted(m1), col='red',
      xlim=c(0,100), ylim=c(0,100),
      xlab="Actual Overall Satisfaction", ylab="Fitted Overall Satisfaction")
 points(sat.df$overall, fitted(m2), col='blue')
 legend("topleft", legend=c("model 1", "model 2"), 
        col=c("red", "blue"), pch=1)
-
 anova(m1, m2)
 
-
-####
-# Prediction
-coef(m2)["(Intercept)"] + coef(m2)["rides"]*100 + coef(m2)["games"]*100 + 
-  coef(m2)["wait"]*100 + coef(m2)["clean"]*100 
+##### Prediction
 coef(m2)%*%c(1,100, 100, 100, 100)
 predict(m2, sat.df[1:10,])
 fitted(m2)[1:10]
 
-
-####
-# standardizing
-# by hand ...
-(sat.df$rides - mean(sat.df$rides)) / sd(sat.df$rides)
+##### standardizing
 scale(sat.df$rides)
-
-# create sat.std as a standardized version of sat
-
 sat.std <- sat.df[ , -3]  # sat but remove distance
 sat.std[ , 3:8] <- scale(sat.std[ , 3:8])
 head(sat.std)
 
-
-####
-# Handling factors
+##### Handling factors
 m3 <- lm(overall ~ rides + games + wait + clean + 
                    weekend + logdist + num.child, 
          data = sat.std)
@@ -91,43 +76,32 @@ m4 <- lm(overall ~ rides + games + wait + clean +
 summary(m4)
 
 sat.std$has.child <- factor(sat.std$num.child > 0)
-
 m5 <- lm(overall ~ rides + games + wait + clean + logdist + has.child, 
          data=sat.std)
 summary(m5)
 
-
-####
-# Interaction
+##### Interaction
 m6 <- lm(overall ~ rides + games + wait + clean + 
                    weekend + logdist + has.child + 
                    rides:has.child + games:has.child + wait:has.child +
                    clean:has.child + 
                    rides:weekend + games:weekend + wait:weekend + clean:weekend, 
          data=sat.std)
-
 summary(m6)
 
 
-####
-# reduced model
+##### reduced model
 m7 <- lm(overall ~ rides + games + wait + clean + logdist + has.child + 
                    wait:has.child,
          data=sat.std)
 summary(m7)
 
-# TRY: coef(m7)["wait"] + coef(m7)["wait:has.childTRUE"]
-
-#Try it!
-# anova(m5, m7)
-# plot(m7)
-
+anova(m5, m7)
+plot(m7)
 library(coefplot)
-
 coefplot(m7, intercept=FALSE, outerCI=1.96, lwdOuter=1.5,
          ylab="Rating of Feature", 
          xlab="Association with Overall Satisfaction")
-
 
 ####
 # Bayesian Linear Model
@@ -136,4 +110,3 @@ m7.bayes <- MCMCregress(overall ~ rides + games + wait + clean + logdist +
                           has.child + wait:has.child,
                         data=sat.std)
 summary(m7.bayes)
-

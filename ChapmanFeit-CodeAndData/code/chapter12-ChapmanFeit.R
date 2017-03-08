@@ -1,38 +1,3 @@
-###################################
-# Code for: R for Marketing Research and Analytics, Chapter 12
-#
-# Authors:  Chris Chapman               Elea McDonnell Feit
-#           cnchapman+rbook@gmail.com   efeit@drexel.edu
-#
-# Copyright 2015, Springer 
-#
-# Last update: January 7, 2015
-# Version: 1.0
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-#
-# You may obtain a copy of the License at
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-#################################################################
-# BRIEF HOW TO USE
-# This file contains scripts used in Chapter 12 of Chapman & Feit (2015),
-#   "R for Marketing Research and Analytics", Springer. 
-#################################################################
-
-# Chapter 12 -- Association rules
-
-# packages if needed:
-# install.packages(c("arules", "arulesViz"))
-
-
 # Quick example with small data set: "Groceries" data from arules package
 # 
 library(arules)

@@ -1,74 +1,12 @@
-###################################
-# Code for: R for Marketing Research and Analytics, Chapter 10
-#
-# Authors:  Chris Chapman               Elea McDonnell Feit
-#           cnchapman+rbook@gmail.com   efeit@drexel.edu
-#
-# Copyright 2015, Springer 
-#
-# Last update: January 7, 2015
-# Version: 1.0
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-#
-# You may obtain a copy of the License at
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-#################################################################
-# BRIEF HOW TO USE
-# This file contains scripts used in Chapter 10 of Chapman & Feit (2015),
-#   "R for Marketing Research and Analytics", Springer. 
-#################################################################
-
-
-# R code for Chapter 10 -- structural modeling
-
-
 ##### preliminaries
 
 ### load data if you prefer not to simulate it as below
 piesSimData <- read.csv("http://goo.gl/yT0XwJ")
 summary(piesSimData)
 
-
-# install.packages(c("lavaan", "semTools", "semPlot"))   # if needed
 library(lavaan)
 library(semTools)
 library(semPlot)
-
-
-########
-# simulate data
-# structure based on Chapman, Love, Staton, & Lahav (in review):
-
-# define the hierarchical structural model
-piesModel <- " General =~ i1 + i2 + i3
-               Feature =~ i4 + i5 + i6  + i7
-               Image   =~ i8 + i9 + i10 + i11
-               PIES =~ General + Feature + Image "
-
-
-# specify population model
-piesDataModel <- " General =~ 0.9*i1 + 0.7*i2 + 0.5*i3
-                   Feature =~ 0.3*i3 + 0.7*i4 + 0.9*i5 + 0.5*i6  + 0.9*i7
-                   Image   =~ 0.2*i3 + 0.8*i8 + 0.9*i9 + 0.8*i10 + 0.7*i11 
-                   PIES =~ 0.7*General + 0.8*Feature + 0.8*Image"
-
-# generate simulated data
-set.seed(10001)    # another island Zip code
-piesSimData.norm <- simulateData(piesDataModel, sample.nobs=3600)
-print(head(piesSimData.norm), digits=2)
-
-# convert the real numbers to 1-7 scale faux-Likert items
-piesSimData <- data.frame(lapply(piesSimData.norm, 
-                          function(x) { cut(x, breaks=7, labels=FALSE) } ))
 
 ### check the simulated data
 library(car)
@@ -86,7 +24,6 @@ scatterplotMatrix(piesSimData[, c(1, 2, 4, 5, 8, 9)], diag="histogram",
 factanal(piesSimData, factors=3)
 
 ######## END of data simulation
-
 
 
 ###
