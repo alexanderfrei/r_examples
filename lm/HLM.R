@@ -2,6 +2,9 @@
 #### Hierarchical model
 ####
 
+library(lme4)
+library(nlme)
+
 #################################################################
 ## conjoint example
 
@@ -13,8 +16,6 @@ conjoint.df$height <- factor(conjoint.df$height)
 ride.lm <- lm(rating ~ speed + height + const + theme, data=conjoint.df)
 summary(ride.lm)
 
-# hierarchical model
-library(lme4)
 
 # model with random intercept by respondent = (1 | resp.id)
 ride.hlm1 <- lmer(rating ~ speed + height + const + theme + (1 | resp.id),  
@@ -52,9 +53,6 @@ set.seed(97439)
 ride.mc2 <- MCMChregress(fixed = rating ~ speed + height + const + theme, 
                          random = ~ speed + height + const + theme, 
                          group="resp.id", data=conjoint.df, r=8, R=diag(8))
-
-str(ride.mc2)
-
 # overall estimates
 summary(ride.mc2$mcmc[ ,1:8])
 
@@ -66,14 +64,13 @@ summary(ride.mc2$mcmc[ , grepl(".196", colnames(ride.mc2$mcmc), fixed=TRUE)])
 ride.constWood <- summary(ride.mc2$mcmc[ , grepl("b.constWood", 
                                                 colnames(ride.mc2$mcmc))] 
                           + ride.mc2$mcmc[ , "beta.constWood"])
-
 ride.constWood$statistics[,1]
-
 hist(ride.constWood$statistics[,1], 
      main="Preference for Wood vs. Steel", 
      xlab="Rating points", ylab="Count of Respondents", xlim=c(-4,4))
 
 # 60 mph 
+
 ride.speed60 <- summary(ride.mc2$mcmc[,grepl("b.speed60", 
                                             colnames(ride.mc2$mcmc))] 
                         + ride.mc2$mcmc[,"beta.speed60"])
@@ -83,10 +80,8 @@ hist(ride.speed60$statistics[,1],
      xlab="Rating points", ylab="Count of Respondents", xlim=c(-4,4))
 
 
-
 summary(ride.mc2$mcmc[,c("beta.constWood", "VCV.constWood.constWood", 
                    "beta.speed60","VCV.speed60.speed60")])
-
 
 
 #### Reflections on Model Comparison
@@ -100,13 +95,12 @@ abline(0,1)
 
 # or compare random effects (in this case, for one respondent)
 # in general, would want to compare full coefficients (fixed + random)
-#
 # but in this case, the fixed are nearly identical between the two,
 # so we'll omit those for convenience
-#
-# LME random effects for ID #196
-ranef(ride.hlm2)$resp.id[196, ]
 
+# LME random effects for ID #196
+
+ranef(ride.hlm2)$resp.id[196, ]
 # MCMC random effects for ID #196
 colMeans(ride.mc2$mcmc[ , grepl(".196", colnames(ride.mc2$mcmc), 
                                 fixed=TRUE)])
