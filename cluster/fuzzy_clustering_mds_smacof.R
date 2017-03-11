@@ -11,7 +11,7 @@ FANNY <- fanny(distMat, k = 3, maxit = 2000)
 FANNY$membership
 
 MDS <- smacofSym(distMat)$conf
-?smacofSym
+# ?smacofSym
 plot(MDS, type = "n")
 text(MDS, label = rownames(MDS), col = rgb((FANNY$membership)^(1/1)))
 

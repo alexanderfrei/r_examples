@@ -19,7 +19,33 @@ pvrect(iriss.pv, alpha=0.95)
 seplot(iriss.pv)
 
 # fuzzy 
-
 iris.f <- fanny(iris[,1:4], 3)
 plot(iris.f, which=1, main="")
 data.frame(sp=iris[,5], iris.f$membership)
+
+################################
+eg.raw <- read.csv("data/seg.csv")
+seg.df  <- seg.raw[ , -7]
+
+# a simple function to report means by group
+seg.summ <- function(data, groups) {
+  aggregate(data, list(groups), function(x) mean(as.numeric(x)))  
+}
+seg.summ(seg.df, seg.raw$Segment)
+
+library(cluster)
+seg.dist <- daisy(seg.df)
+seg.hc <- hclust(seg.dist, method="ward.D2")
+plot(seg.hc)
+# zoom in on just part of it
+plot(cut(as.dendrogram(seg.hc), h=0.7)$lower[[1]])
+
+# examine cophenetic correlation
+cor(cophenetic(seg.hc), seg.dist)
+
+# 4 clusters
+plot(seg.hc)
+rect.hclust(seg.hc, k=4, border="red")
+seg.hc.segment <- cutree(seg.hc, k=4)
+table(seg.hc.segment)
+seg.summ(seg.df, seg.hc.segment)
