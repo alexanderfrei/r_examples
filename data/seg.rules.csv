@@ -1,0 +1,580 @@
+"rules","support","confidence","lift"
+"1","{} => {kids=No kids}",0.403333333333333,0.403333333333333,1
+"2","{} => {ownHome=ownYes}",0.47,0.47,1
+"3","{} => {gender=Male}",0.476666666666667,0.476666666666667,1
+"4","{} => {age=35-54}",0.506666666666667,0.506666666666667,1
+"5","{} => {gender=Female}",0.523333333333333,0.523333333333333,1
+"6","{} => {ownHome=ownNo}",0.53,0.53,1
+"7","{} => {income=Medium}",0.61,0.61,1
+"8","{} => {subscribe=subNo}",0.866666666666667,0.866666666666667,1
+"9","{age=55-64} => {Segment=Travelers}",0.126666666666667,1,3.75
+"10","{Segment=Travelers} => {age=55-64}",0.126666666666667,0.475,3.75
+"11","{age=55-64} => {kids=No kids}",0.126666666666667,1,2.47933884297521
+"12","{age=55-64} => {subscribe=subNo}",0.11,0.868421052631579,1.00202429149798
+"13","{age=19-24} => {Segment=Urban hip}",0.126666666666667,1,6
+"14","{Segment=Urban hip} => {age=19-24}",0.126666666666667,0.76,6
+"15","{age=19-24} => {income=Low}",0.126666666666667,1,3.8961038961039
+"16","{income=Low} => {age=19-24}",0.126666666666667,0.493506493506494,3.8961038961039
+"17","{age=19-24} => {ownHome=ownNo}",0.1,0.789473684210526,1.48957298907646
+"18","{age=19-24} => {subscribe=subNo}",0.1,0.789473684210526,0.910931174089069
+"19","{income=High} => {subscribe=subNo}",0.123333333333333,0.925,1.06730769230769
+"20","{Segment=Urban hip} => {income=Low}",0.166666666666667,1,3.8961038961039
+"21","{income=Low} => {Segment=Urban hip}",0.166666666666667,0.649350649350649,3.8961038961039
+"22","{Segment=Urban hip} => {gender=Male}",0.1,0.6,1.25874125874126
+"23","{Segment=Urban hip} => {ownHome=ownNo}",0.133333333333333,0.8,1.50943396226415
+"24","{Segment=Urban hip} => {subscribe=subNo}",0.133333333333333,0.8,0.923076923076923
+"25","{kids=2 kids} => {gender=Female}",0.103333333333333,0.607843137254902,1.16148370176096
+"26","{kids=2 kids} => {income=Medium}",0.106666666666667,0.627450980392157,1.02860816457731
+"27","{kids=2 kids} => {subscribe=subNo}",0.14,0.823529411764706,0.950226244343891
+"28","{age=25-34} => {gender=Female}",0.11,0.568965517241379,1.08719525587525
+"29","{age=25-34} => {ownHome=ownNo}",0.133333333333333,0.689655172413793,1.30123617436565
+"30","{age=25-34} => {income=Medium}",0.116666666666667,0.603448275862069,0.989259468626343
+"31","{age=25-34} => {subscribe=subNo}",0.166666666666667,0.862068965517241,0.994694960212201
+"32","{kids=3+ kids} => {Segment=Suburb mix}",0.103333333333333,0.53448275862069,1.60344827586207
+"33","{kids=3+ kids} => {age=35-54}",0.123333333333333,0.637931034482759,1.25907441016334
+"34","{kids=3+ kids} => {gender=Female}",0.103333333333333,0.53448275862069,1.02130463430705
+"35","{kids=3+ kids} => {ownHome=ownNo}",0.11,0.568965517241379,1.07351984385166
+"36","{kids=3+ kids} => {income=Medium}",0.156666666666667,0.810344827586207,1.32843414358395
+"37","{kids=3+ kids} => {subscribe=subNo}",0.176666666666667,0.913793103448276,1.05437665782493
+"38","{Segment=Moving up} => {age=35-54}",0.143333333333333,0.614285714285714,1.21240601503759
+"39","{Segment=Moving up} => {gender=Female}",0.163333333333333,0.7,1.33757961783439
+"40","{Segment=Moving up} => {ownHome=ownNo}",0.156666666666667,0.671428571428571,1.26684636118598
+"41","{Segment=Moving up} => {income=Medium}",0.203333333333333,0.871428571428571,1.42857142857143
+"42","{Segment=Moving up} => {subscribe=subNo}",0.186666666666667,0.8,0.923076923076923
+"43","{kids=1 kid} => {Segment=Suburb mix}",0.12,0.514285714285714,1.54285714285714
+"44","{kids=1 kid} => {gender=Male}",0.13,0.557142857142857,1.16883116883117
+"45","{kids=1 kid} => {age=35-54}",0.143333333333333,0.614285714285714,1.21240601503759
+"46","{kids=1 kid} => {gender=Female}",0.103333333333333,0.442857142857143,0.846223839854413
+"47","{kids=1 kid} => {ownHome=ownNo}",0.173333333333333,0.742857142857143,1.40161725067385
+"48","{kids=1 kid} => {income=Medium}",0.14,0.6,0.983606557377049
+"49","{kids=1 kid} => {subscribe=subNo}",0.186666666666667,0.8,0.923076923076923
+"50","{income=Low} => {kids=No kids}",0.103333333333333,0.402597402597403,0.998175378340668
+"51","{income=Low} => {gender=Male}",0.146666666666667,0.571428571428571,1.1988011988012
+"52","{income=Low} => {gender=Female}",0.11,0.428571428571429,0.818926296633303
+"53","{income=Low} => {ownHome=ownNo}",0.17,0.662337662337662,1.24969370252389
+"54","{income=Low} => {subscribe=subNo}",0.216666666666667,0.844155844155844,0.974025974025974
+"55","{Segment=Travelers} => {kids=No kids}",0.266666666666667,1,2.47933884297521
+"56","{kids=No kids} => {Segment=Travelers}",0.266666666666667,0.661157024793388,2.47933884297521
+"57","{Segment=Travelers} => {ownHome=ownYes}",0.2,0.75,1.59574468085106
+"58","{ownHome=ownYes} => {Segment=Travelers}",0.2,0.425531914893617,1.59574468085106
+"59","{Segment=Travelers} => {gender=Male}",0.133333333333333,0.5,1.04895104895105
+"60","{Segment=Travelers} => {gender=Female}",0.133333333333333,0.5,0.955414012738854
+"61","{Segment=Travelers} => {income=Medium}",0.136666666666667,0.5125,0.840163934426229
+"62","{Segment=Travelers} => {subscribe=subNo}",0.233333333333333,0.875,1.00961538461538
+"63","{Segment=Suburb mix} => {ownHome=ownYes}",0.16,0.48,1.02127659574468
+"64","{Segment=Suburb mix} => {gender=Male}",0.173333333333333,0.52,1.09090909090909
+"65","{Segment=Suburb mix} => {age=35-54}",0.27,0.81,1.59868421052632
+"66","{age=35-54} => {Segment=Suburb mix}",0.27,0.532894736842105,1.59868421052632
+"67","{Segment=Suburb mix} => {gender=Female}",0.16,0.48,0.917197452229299
+"68","{Segment=Suburb mix} => {ownHome=ownNo}",0.173333333333333,0.52,0.981132075471698
+"69","{Segment=Suburb mix} => {income=Medium}",0.27,0.81,1.32786885245902
+"70","{income=Medium} => {Segment=Suburb mix}",0.27,0.442622950819672,1.32786885245902
+"71","{Segment=Suburb mix} => {subscribe=subNo}",0.313333333333333,0.94,1.08461538461538
+"72","{kids=No kids} => {ownHome=ownYes}",0.246666666666667,0.611570247933884,1.30121329347635
+"73","{ownHome=ownYes} => {kids=No kids}",0.246666666666667,0.524822695035461,1.30121329347635
+"74","{kids=No kids} => {gender=Male}",0.19,0.471074380165289,0.988267930416691
+"75","{kids=No kids} => {gender=Female}",0.213333333333333,0.528925619834711,1.01068589777333
+"76","{gender=Female} => {kids=No kids}",0.213333333333333,0.407643312101911,1.01068589777333
+"77","{kids=No kids} => {income=Medium}",0.206666666666667,0.512396694214876,0.839994580680125
+"78","{kids=No kids} => {subscribe=subNo}",0.363333333333333,0.900826446280992,1.03941513032422
+"79","{subscribe=subNo} => {kids=No kids}",0.363333333333333,0.419230769230769,1.03941513032422
+"80","{ownHome=ownYes} => {gender=Male}",0.216666666666667,0.460992907801418,0.967117988394584
+"81","{gender=Male} => {ownHome=ownYes}",0.216666666666667,0.454545454545455,0.967117988394584
+"82","{ownHome=ownYes} => {age=35-54}",0.253333333333333,0.539007092198582,1.06382978723404
+"83","{age=35-54} => {ownHome=ownYes}",0.253333333333333,0.5,1.06382978723404
+"84","{ownHome=ownYes} => {gender=Female}",0.253333333333333,0.539007092198582,1.0299498577043
+"85","{gender=Female} => {ownHome=ownYes}",0.253333333333333,0.484076433121019,1.0299498577043
+"86","{ownHome=ownYes} => {income=Medium}",0.29,0.617021276595745,1.01151028950122
+"87","{income=Medium} => {ownHome=ownYes}",0.29,0.475409836065574,1.01151028950122
+"88","{ownHome=ownYes} => {subscribe=subNo}",0.41,0.872340425531915,1.00654664484452
+"89","{subscribe=subNo} => {ownHome=ownYes}",0.41,0.473076923076923,1.00654664484452
+"90","{gender=Male} => {age=35-54}",0.236666666666667,0.496503496503497,0.979941111520059
+"91","{age=35-54} => {gender=Male}",0.236666666666667,0.467105263157895,0.979941111520059
+"92","{gender=Male} => {ownHome=ownNo}",0.26,0.545454545454545,1.02915951972556
+"93","{ownHome=ownNo} => {gender=Male}",0.26,0.490566037735849,1.02915951972556
+"94","{gender=Male} => {income=Medium}",0.28,0.587412587412587,0.962971454774733
+"95","{income=Medium} => {gender=Male}",0.28,0.459016393442623,0.962971454774733
+"96","{gender=Male} => {subscribe=subNo}",0.413333333333333,0.867132867132867,1.00053792361485
+"97","{subscribe=subNo} => {gender=Male}",0.413333333333333,0.476923076923077,1.00053792361485
+"98","{age=35-54} => {gender=Female}",0.27,0.532894736842105,1.01827019778746
+"99","{gender=Female} => {age=35-54}",0.27,0.515923566878981,1.01827019778746
+"100","{age=35-54} => {ownHome=ownNo}",0.253333333333333,0.5,0.943396226415094
+"101","{ownHome=ownNo} => {age=35-54}",0.253333333333333,0.477987421383648,0.943396226415094
+"102","{age=35-54} => {income=Medium}",0.413333333333333,0.815789473684211,1.33735979292494
+"103","{income=Medium} => {age=35-54}",0.413333333333333,0.677595628415301,1.33735979292494
+"104","{age=35-54} => {subscribe=subNo}",0.45,0.888157894736842,1.0247975708502
+"105","{subscribe=subNo} => {age=35-54}",0.45,0.519230769230769,1.0247975708502
+"106","{gender=Female} => {ownHome=ownNo}",0.27,0.515923566878981,0.973440692224492
+"107","{ownHome=ownNo} => {gender=Female}",0.27,0.509433962264151,0.973440692224492
+"108","{gender=Female} => {income=Medium}",0.33,0.630573248407643,1.03372663673384
+"109","{income=Medium} => {gender=Female}",0.33,0.540983606557377,1.03372663673384
+"110","{gender=Female} => {subscribe=subNo}",0.453333333333333,0.866242038216561,0.999510044096031
+"111","{subscribe=subNo} => {gender=Female}",0.453333333333333,0.523076923076923,0.999510044096031
+"112","{ownHome=ownNo} => {income=Medium}",0.32,0.60377358490566,0.989792762140427
+"113","{income=Medium} => {ownHome=ownNo}",0.32,0.524590163934426,0.989792762140427
+"114","{ownHome=ownNo} => {subscribe=subNo}",0.456666666666667,0.861635220125786,0.994194484760523
+"115","{subscribe=subNo} => {ownHome=ownNo}",0.456666666666667,0.526923076923077,0.994194484760523
+"116","{income=Medium} => {subscribe=subNo}",0.526666666666667,0.863387978142076,0.996216897856242
+"117","{subscribe=subNo} => {income=Medium}",0.526666666666667,0.607692307692308,0.996216897856242
+"118","{age=55-64,Segment=Travelers} => {kids=No kids}",0.126666666666667,1,2.47933884297521
+"119","{age=55-64,kids=No kids} => {Segment=Travelers}",0.126666666666667,1,3.75
+"120","{kids=No kids,Segment=Travelers} => {age=55-64}",0.126666666666667,0.475,3.75
+"121","{age=55-64,Segment=Travelers} => {subscribe=subNo}",0.11,0.868421052631579,1.00202429149798
+"122","{age=55-64,subscribe=subNo} => {Segment=Travelers}",0.11,1,3.75
+"123","{subscribe=subNo,Segment=Travelers} => {age=55-64}",0.11,0.471428571428571,3.7218045112782
+"124","{age=55-64,kids=No kids} => {subscribe=subNo}",0.11,0.868421052631579,1.00202429149798
+"125","{age=55-64,subscribe=subNo} => {kids=No kids}",0.11,1,2.47933884297521
+"126","{age=19-24,Segment=Urban hip} => {income=Low}",0.126666666666667,1,3.8961038961039
+"127","{age=19-24,income=Low} => {Segment=Urban hip}",0.126666666666667,1,6
+"128","{income=Low,Segment=Urban hip} => {age=19-24}",0.126666666666667,0.76,6
+"129","{age=19-24,Segment=Urban hip} => {ownHome=ownNo}",0.1,0.789473684210526,1.48957298907646
+"130","{age=19-24,ownHome=ownNo} => {Segment=Urban hip}",0.1,1,6
+"131","{ownHome=ownNo,Segment=Urban hip} => {age=19-24}",0.1,0.75,5.92105263157895
+"132","{age=19-24,Segment=Urban hip} => {subscribe=subNo}",0.1,0.789473684210526,0.910931174089069
+"133","{age=19-24,subscribe=subNo} => {Segment=Urban hip}",0.1,1,6
+"134","{subscribe=subNo,Segment=Urban hip} => {age=19-24}",0.1,0.75,5.92105263157895
+"135","{age=19-24,income=Low} => {ownHome=ownNo}",0.1,0.789473684210526,1.48957298907646
+"136","{age=19-24,ownHome=ownNo} => {income=Low}",0.1,1,3.8961038961039
+"137","{income=Low,ownHome=ownNo} => {age=19-24}",0.1,0.588235294117647,4.64396284829721
+"138","{age=19-24,income=Low} => {subscribe=subNo}",0.1,0.789473684210526,0.910931174089069
+"139","{age=19-24,subscribe=subNo} => {income=Low}",0.1,1,3.8961038961039
+"140","{income=Low,subscribe=subNo} => {age=19-24}",0.1,0.461538461538462,3.64372469635628
+"141","{income=Low,Segment=Urban hip} => {gender=Male}",0.1,0.6,1.25874125874126
+"142","{gender=Male,Segment=Urban hip} => {income=Low}",0.1,1,3.8961038961039
+"143","{gender=Male,income=Low} => {Segment=Urban hip}",0.1,0.681818181818182,4.09090909090909
+"144","{income=Low,Segment=Urban hip} => {ownHome=ownNo}",0.133333333333333,0.8,1.50943396226415
+"145","{ownHome=ownNo,Segment=Urban hip} => {income=Low}",0.133333333333333,1,3.8961038961039
+"146","{income=Low,ownHome=ownNo} => {Segment=Urban hip}",0.133333333333333,0.784313725490196,4.70588235294118
+"147","{income=Low,Segment=Urban hip} => {subscribe=subNo}",0.133333333333333,0.8,0.923076923076923
+"148","{subscribe=subNo,Segment=Urban hip} => {income=Low}",0.133333333333333,1,3.8961038961039
+"149","{income=Low,subscribe=subNo} => {Segment=Urban hip}",0.133333333333333,0.615384615384615,3.69230769230769
+"150","{ownHome=ownNo,Segment=Urban hip} => {subscribe=subNo}",0.106666666666667,0.8,0.923076923076923
+"151","{subscribe=subNo,Segment=Urban hip} => {ownHome=ownNo}",0.106666666666667,0.8,1.50943396226415
+"152","{age=25-34,ownHome=ownNo} => {subscribe=subNo}",0.123333333333333,0.925,1.06730769230769
+"153","{age=25-34,subscribe=subNo} => {ownHome=ownNo}",0.123333333333333,0.74,1.39622641509434
+"154","{age=35-54,kids=3+ kids} => {income=Medium}",0.116666666666667,0.945945945945946,1.55073105892778
+"155","{income=Medium,kids=3+ kids} => {age=35-54}",0.116666666666667,0.74468085106383,1.46976483762598
+"156","{age=35-54,kids=3+ kids} => {subscribe=subNo}",0.113333333333333,0.918918918918919,1.06029106029106
+"157","{kids=3+ kids,subscribe=subNo} => {age=35-54}",0.113333333333333,0.641509433962264,1.26613704071499
+"158","{kids=3+ kids,ownHome=ownNo} => {subscribe=subNo}",0.103333333333333,0.939393939393939,1.08391608391608
+"159","{kids=3+ kids,subscribe=subNo} => {ownHome=ownNo}",0.103333333333333,0.584905660377358,1.10359558561766
+"160","{income=Medium,kids=3+ kids} => {subscribe=subNo}",0.14,0.893617021276596,1.03109656301146
+"161","{kids=3+ kids,subscribe=subNo} => {income=Medium}",0.14,0.792452830188679,1.29910300030931
+"162","{age=35-54,Segment=Moving up} => {income=Medium}",0.133333333333333,0.930232558139535,1.52497140678612
+"163","{income=Medium,Segment=Moving up} => {age=35-54}",0.133333333333333,0.655737704918033,1.29421915444349
+"164","{age=35-54,Segment=Moving up} => {subscribe=subNo}",0.106666666666667,0.744186046511628,0.858676207513417
+"165","{subscribe=subNo,Segment=Moving up} => {age=35-54}",0.106666666666667,0.571428571428571,1.12781954887218
+"166","{gender=Female,Segment=Moving up} => {ownHome=ownNo}",0.113333333333333,0.693877551020408,1.3092029264536
+"167","{ownHome=ownNo,Segment=Moving up} => {gender=Female}",0.113333333333333,0.723404255319149,1.38230112481366
+"168","{gender=Female,ownHome=ownNo} => {Segment=Moving up}",0.113333333333333,0.419753086419753,1.7989417989418
+"169","{gender=Female,Segment=Moving up} => {income=Medium}",0.14,0.857142857142857,1.40515222482436
+"170","{income=Medium,Segment=Moving up} => {gender=Female}",0.14,0.688524590163934,1.3156520831158
+"171","{gender=Female,income=Medium} => {Segment=Moving up}",0.14,0.424242424242424,1.81818181818182
+"172","{gender=Female,Segment=Moving up} => {subscribe=subNo}",0.126666666666667,0.775510204081633,0.894819466248038
+"173","{subscribe=subNo,Segment=Moving up} => {gender=Female}",0.126666666666667,0.678571428571429,1.29663330300273
+"174","{ownHome=ownNo,Segment=Moving up} => {income=Medium}",0.13,0.829787234042553,1.36030694105337
+"175","{income=Medium,Segment=Moving up} => {ownHome=ownNo}",0.13,0.639344262295082,1.20630992885865
+"176","{income=Medium,ownHome=ownNo} => {Segment=Moving up}",0.13,0.40625,1.74107142857143
+"177","{ownHome=ownNo,Segment=Moving up} => {subscribe=subNo}",0.126666666666667,0.808510638297872,0.932896890343699
+"178","{subscribe=subNo,Segment=Moving up} => {ownHome=ownNo}",0.126666666666667,0.678571428571429,1.28032345013477
+"179","{income=Medium,Segment=Moving up} => {subscribe=subNo}",0.16,0.786885245901639,0.907944514501892
+"180","{subscribe=subNo,Segment=Moving up} => {income=Medium}",0.16,0.857142857142857,1.40515222482436
+"181","{kids=1 kid,Segment=Suburb mix} => {age=35-54}",0.106666666666667,0.888888888888889,1.75438596491228
+"182","{age=35-54,kids=1 kid} => {Segment=Suburb mix}",0.106666666666667,0.744186046511628,2.23255813953488
+"183","{kids=1 kid,Segment=Suburb mix} => {subscribe=subNo}",0.116666666666667,0.972222222222222,1.12179487179487
+"184","{kids=1 kid,subscribe=subNo} => {Segment=Suburb mix}",0.116666666666667,0.625,1.875
+"185","{gender=Male,kids=1 kid} => {ownHome=ownNo}",0.106666666666667,0.82051282051282,1.548137397194
+"186","{kids=1 kid,ownHome=ownNo} => {gender=Male}",0.106666666666667,0.615384615384615,1.29101667563206
+"187","{gender=Male,ownHome=ownNo} => {kids=1 kid}",0.106666666666667,0.41025641025641,1.75824175824176
+"188","{gender=Male,kids=1 kid} => {subscribe=subNo}",0.106666666666667,0.82051282051282,0.946745562130177
+"189","{kids=1 kid,subscribe=subNo} => {gender=Male}",0.106666666666667,0.571428571428571,1.1988011988012
+"190","{age=35-54,kids=1 kid} => {ownHome=ownNo}",0.103333333333333,0.720930232558139,1.36024572180781
+"191","{kids=1 kid,ownHome=ownNo} => {age=35-54}",0.103333333333333,0.596153846153846,1.17661943319838
+"192","{age=35-54,ownHome=ownNo} => {kids=1 kid}",0.103333333333333,0.407894736842105,1.74812030075188
+"193","{age=35-54,kids=1 kid} => {income=Medium}",0.113333333333333,0.790697674418605,1.2962256957682
+"194","{income=Medium,kids=1 kid} => {age=35-54}",0.113333333333333,0.80952380952381,1.59774436090226
+"195","{age=35-54,kids=1 kid} => {subscribe=subNo}",0.12,0.837209302325581,0.966010733452594
+"196","{kids=1 kid,subscribe=subNo} => {age=35-54}",0.12,0.642857142857143,1.2687969924812
+"197","{kids=1 kid,ownHome=ownNo} => {subscribe=subNo}",0.136666666666667,0.788461538461538,0.909763313609467
+"198","{kids=1 kid,subscribe=subNo} => {ownHome=ownNo}",0.136666666666667,0.732142857142857,1.38140161725067
+"199","{income=Medium,kids=1 kid} => {subscribe=subNo}",0.113333333333333,0.80952380952381,0.934065934065934
+"200","{kids=1 kid,subscribe=subNo} => {income=Medium}",0.113333333333333,0.607142857142857,0.995316159250585
+"201","{gender=Male,income=Low} => {ownHome=ownNo}",0.106666666666667,0.727272727272727,1.37221269296741
+"202","{income=Low,ownHome=ownNo} => {gender=Male}",0.106666666666667,0.627450980392157,1.31633072809543
+"203","{gender=Male,ownHome=ownNo} => {income=Low}",0.106666666666667,0.41025641025641,1.5984015984016
+"204","{gender=Male,income=Low} => {subscribe=subNo}",0.123333333333333,0.840909090909091,0.97027972027972
+"205","{income=Low,subscribe=subNo} => {gender=Male}",0.123333333333333,0.569230769230769,1.19419042495966
+"206","{income=Low,ownHome=ownNo} => {subscribe=subNo}",0.136666666666667,0.803921568627451,0.927601809954751
+"207","{income=Low,subscribe=subNo} => {ownHome=ownNo}",0.136666666666667,0.630769230769231,1.19013062409289
+"208","{kids=No kids,Segment=Travelers} => {ownHome=ownYes}",0.2,0.75,1.59574468085106
+"209","{ownHome=ownYes,Segment=Travelers} => {kids=No kids}",0.2,1,2.47933884297521
+"210","{kids=No kids,ownHome=ownYes} => {Segment=Travelers}",0.2,0.810810810810811,3.04054054054054
+"211","{kids=No kids,Segment=Travelers} => {gender=Male}",0.133333333333333,0.5,1.04895104895105
+"212","{gender=Male,Segment=Travelers} => {kids=No kids}",0.133333333333333,1,2.47933884297521
+"213","{gender=Male,kids=No kids} => {Segment=Travelers}",0.133333333333333,0.701754385964912,2.63157894736842
+"214","{kids=No kids,Segment=Travelers} => {gender=Female}",0.133333333333333,0.5,0.955414012738854
+"215","{gender=Female,Segment=Travelers} => {kids=No kids}",0.133333333333333,1,2.47933884297521
+"216","{gender=Female,kids=No kids} => {Segment=Travelers}",0.133333333333333,0.625,2.34375
+"217","{kids=No kids,Segment=Travelers} => {income=Medium}",0.136666666666667,0.5125,0.840163934426229
+"218","{income=Medium,Segment=Travelers} => {kids=No kids}",0.136666666666667,1,2.47933884297521
+"219","{income=Medium,kids=No kids} => {Segment=Travelers}",0.136666666666667,0.661290322580645,2.47983870967742
+"220","{kids=No kids,Segment=Travelers} => {subscribe=subNo}",0.233333333333333,0.875,1.00961538461538
+"221","{subscribe=subNo,Segment=Travelers} => {kids=No kids}",0.233333333333333,1,2.47933884297521
+"222","{kids=No kids,subscribe=subNo} => {Segment=Travelers}",0.233333333333333,0.642201834862385,2.40825688073395
+"223","{ownHome=ownYes,Segment=Travelers} => {gender=Male}",0.1,0.5,1.04895104895105
+"224","{gender=Male,Segment=Travelers} => {ownHome=ownYes}",0.1,0.75,1.59574468085106
+"225","{gender=Male,ownHome=ownYes} => {Segment=Travelers}",0.1,0.461538461538462,1.73076923076923
+"226","{ownHome=ownYes,Segment=Travelers} => {gender=Female}",0.1,0.5,0.955414012738854
+"227","{gender=Female,Segment=Travelers} => {ownHome=ownYes}",0.1,0.75,1.59574468085106
+"228","{ownHome=ownYes,Segment=Travelers} => {subscribe=subNo}",0.176666666666667,0.883333333333333,1.01923076923077
+"229","{subscribe=subNo,Segment=Travelers} => {ownHome=ownYes}",0.176666666666667,0.757142857142857,1.61094224924012
+"230","{ownHome=ownYes,subscribe=subNo} => {Segment=Travelers}",0.176666666666667,0.430894308943089,1.61585365853659
+"231","{gender=Male,Segment=Travelers} => {subscribe=subNo}",0.11,0.825,0.951923076923077
+"232","{subscribe=subNo,Segment=Travelers} => {gender=Male}",0.11,0.471428571428571,0.989010989010989
+"233","{gender=Female,Segment=Travelers} => {subscribe=subNo}",0.123333333333333,0.925,1.06730769230769
+"234","{subscribe=subNo,Segment=Travelers} => {gender=Female}",0.123333333333333,0.528571428571429,1.01000909918107
+"235","{income=Medium,Segment=Travelers} => {subscribe=subNo}",0.116666666666667,0.853658536585366,0.984990619136961
+"236","{subscribe=subNo,Segment=Travelers} => {income=Medium}",0.116666666666667,0.5,0.819672131147541
+"237","{ownHome=ownYes,Segment=Suburb mix} => {age=35-54}",0.133333333333333,0.833333333333333,1.64473684210526
+"238","{age=35-54,Segment=Suburb mix} => {ownHome=ownYes}",0.133333333333333,0.493827160493827,1.05069608615708
+"239","{age=35-54,ownHome=ownYes} => {Segment=Suburb mix}",0.133333333333333,0.526315789473684,1.57894736842105
+"240","{ownHome=ownYes,Segment=Suburb mix} => {income=Medium}",0.126666666666667,0.791666666666667,1.29781420765027
+"241","{income=Medium,Segment=Suburb mix} => {ownHome=ownYes}",0.126666666666667,0.469135802469136,0.998161281849225
+"242","{income=Medium,ownHome=ownYes} => {Segment=Suburb mix}",0.126666666666667,0.436781609195402,1.31034482758621
+"243","{ownHome=ownYes,Segment=Suburb mix} => {subscribe=subNo}",0.146666666666667,0.916666666666667,1.05769230769231
+"244","{subscribe=subNo,Segment=Suburb mix} => {ownHome=ownYes}",0.146666666666667,0.468085106382979,0.995925758261657
+"245","{gender=Male,Segment=Suburb mix} => {age=35-54}",0.136666666666667,0.788461538461538,1.55617408906883
+"246","{age=35-54,Segment=Suburb mix} => {gender=Male}",0.136666666666667,0.506172839506173,1.06190106190106
+"247","{age=35-54,gender=Male} => {Segment=Suburb mix}",0.136666666666667,0.577464788732394,1.73239436619718
+"248","{gender=Male,Segment=Suburb mix} => {income=Medium}",0.143333333333333,0.826923076923077,1.35561160151324
+"249","{income=Medium,Segment=Suburb mix} => {gender=Male}",0.143333333333333,0.530864197530864,1.11370111370111
+"250","{gender=Male,income=Medium} => {Segment=Suburb mix}",0.143333333333333,0.511904761904762,1.53571428571429
+"251","{gender=Male,Segment=Suburb mix} => {subscribe=subNo}",0.163333333333333,0.942307692307692,1.08727810650888
+"252","{subscribe=subNo,Segment=Suburb mix} => {gender=Male}",0.163333333333333,0.521276595744681,1.09358726380003
+"253","{age=35-54,Segment=Suburb mix} => {gender=Female}",0.133333333333333,0.493827160493827,0.943618778013683
+"254","{gender=Female,Segment=Suburb mix} => {age=35-54}",0.133333333333333,0.833333333333333,1.64473684210526
+"255","{age=35-54,gender=Female} => {Segment=Suburb mix}",0.133333333333333,0.493827160493827,1.48148148148148
+"256","{age=35-54,Segment=Suburb mix} => {ownHome=ownNo}",0.136666666666667,0.506172839506173,0.955043093407873
+"257","{ownHome=ownNo,Segment=Suburb mix} => {age=35-54}",0.136666666666667,0.788461538461538,1.55617408906883
+"258","{age=35-54,ownHome=ownNo} => {Segment=Suburb mix}",0.136666666666667,0.539473684210526,1.61842105263158
+"259","{age=35-54,Segment=Suburb mix} => {income=Medium}",0.223333333333333,0.827160493827161,1.35600080955272
+"260","{income=Medium,Segment=Suburb mix} => {age=35-54}",0.223333333333333,0.827160493827161,1.63255360623782
+"261","{age=35-54,income=Medium} => {Segment=Suburb mix}",0.223333333333333,0.540322580645161,1.62096774193548
+"262","{age=35-54,Segment=Suburb mix} => {subscribe=subNo}",0.26,0.962962962962963,1.11111111111111
+"263","{subscribe=subNo,Segment=Suburb mix} => {age=35-54}",0.26,0.829787234042553,1.63773796192609
+"264","{age=35-54,subscribe=subNo} => {Segment=Suburb mix}",0.26,0.577777777777778,1.73333333333333
+"265","{gender=Female,Segment=Suburb mix} => {income=Medium}",0.126666666666667,0.791666666666667,1.29781420765027
+"266","{income=Medium,Segment=Suburb mix} => {gender=Female}",0.126666666666667,0.469135802469136,0.896437839112998
+"267","{gender=Female,Segment=Suburb mix} => {subscribe=subNo}",0.15,0.9375,1.08173076923077
+"268","{subscribe=subNo,Segment=Suburb mix} => {gender=Female}",0.15,0.478723404255319,0.914758097303158
+"269","{ownHome=ownNo,Segment=Suburb mix} => {income=Medium}",0.143333333333333,0.826923076923077,1.35561160151324
+"270","{income=Medium,Segment=Suburb mix} => {ownHome=ownNo}",0.143333333333333,0.530864197530864,1.00163056137899
+"271","{income=Medium,ownHome=ownNo} => {Segment=Suburb mix}",0.143333333333333,0.447916666666667,1.34375
+"272","{ownHome=ownNo,Segment=Suburb mix} => {subscribe=subNo}",0.166666666666667,0.961538461538462,1.1094674556213
+"273","{subscribe=subNo,Segment=Suburb mix} => {ownHome=ownNo}",0.166666666666667,0.531914893617021,1.00361300682457
+"274","{income=Medium,Segment=Suburb mix} => {subscribe=subNo}",0.25,0.925925925925926,1.06837606837607
+"275","{subscribe=subNo,Segment=Suburb mix} => {income=Medium}",0.25,0.797872340425532,1.30798744332054
+"276","{income=Medium,subscribe=subNo} => {Segment=Suburb mix}",0.25,0.474683544303797,1.42405063291139
+"277","{kids=No kids,ownHome=ownYes} => {gender=Male}",0.116666666666667,0.472972972972973,0.992250992250992
+"278","{gender=Male,kids=No kids} => {ownHome=ownYes}",0.116666666666667,0.614035087719298,1.30645763344532
+"279","{gender=Male,ownHome=ownYes} => {kids=No kids}",0.116666666666667,0.538461538461538,1.33502860775588
+"280","{kids=No kids,ownHome=ownYes} => {age=35-54}",0.1,0.405405405405405,0.800142247510669
+"281","{age=35-54,kids=No kids} => {ownHome=ownYes}",0.1,0.652173913043478,1.38760407030527
+"282","{kids=No kids,ownHome=ownYes} => {gender=Female}",0.13,0.527027027027027,1.00705801342744
+"283","{gender=Female,kids=No kids} => {ownHome=ownYes}",0.13,0.609375,1.29654255319149
+"284","{gender=Female,ownHome=ownYes} => {kids=No kids}",0.13,0.513157894736842,1.27229230100043
+"285","{kids=No kids,ownHome=ownYes} => {income=Medium}",0.123333333333333,0.5,0.819672131147541
+"286","{income=Medium,kids=No kids} => {ownHome=ownYes}",0.123333333333333,0.596774193548387,1.2697323266987
+"287","{income=Medium,ownHome=ownYes} => {kids=No kids}",0.123333333333333,0.425287356321839,1.05443146195497
+"288","{kids=No kids,ownHome=ownYes} => {subscribe=subNo}",0.223333333333333,0.905405405405405,1.04469854469854
+"289","{kids=No kids,subscribe=subNo} => {ownHome=ownYes}",0.223333333333333,0.614678899082569,1.30782744485653
+"290","{ownHome=ownYes,subscribe=subNo} => {kids=No kids}",0.223333333333333,0.544715447154472,1.35053416649869
+"291","{gender=Male,kids=No kids} => {income=Medium}",0.103333333333333,0.543859649122807,0.89157319528329
+"292","{income=Medium,kids=No kids} => {gender=Male}",0.103333333333333,0.5,1.04895104895105
+"293","{gender=Male,kids=No kids} => {subscribe=subNo}",0.163333333333333,0.859649122807018,0.991902834008097
+"294","{kids=No kids,subscribe=subNo} => {gender=Male}",0.163333333333333,0.44954128440367,0.943093603644062
+"295","{age=35-54,kids=No kids} => {income=Medium}",0.113333333333333,0.739130434782609,1.21168923734854
+"296","{income=Medium,kids=No kids} => {age=35-54}",0.113333333333333,0.548387096774194,1.08234295415959
+"297","{age=35-54,kids=No kids} => {subscribe=subNo}",0.14,0.91304347826087,1.05351170568562
+"298","{gender=Female,kids=No kids} => {income=Medium}",0.103333333333333,0.484375,0.79405737704918
+"299","{income=Medium,kids=No kids} => {gender=Female}",0.103333333333333,0.5,0.955414012738854
+"300","{gender=Female,kids=No kids} => {subscribe=subNo}",0.2,0.9375,1.08173076923077
+"301","{kids=No kids,subscribe=subNo} => {gender=Female}",0.2,0.55045871559633,1.05183194062993
+"302","{gender=Female,subscribe=subNo} => {kids=No kids}",0.2,0.441176470588235,1.09382596013612
+"303","{kids=No kids,ownHome=ownNo} => {subscribe=subNo}",0.14,0.893617021276596,1.03109656301146
+"304","{income=Medium,kids=No kids} => {subscribe=subNo}",0.183333333333333,0.887096774193548,1.02357320099256
+"305","{kids=No kids,subscribe=subNo} => {income=Medium}",0.183333333333333,0.504587155963303,0.827192058956234
+"306","{gender=Male,ownHome=ownYes} => {age=35-54}",0.13,0.6,1.18421052631579
+"307","{age=35-54,ownHome=ownYes} => {gender=Male}",0.13,0.513157894736842,1.07655502392344
+"308","{age=35-54,gender=Male} => {ownHome=ownYes}",0.13,0.549295774647887,1.16871441414444
+"309","{gender=Male,ownHome=ownYes} => {income=Medium}",0.136666666666667,0.630769230769231,1.03404791929382
+"310","{income=Medium,ownHome=ownYes} => {gender=Male}",0.136666666666667,0.471264367816092,0.988666505907885
+"311","{gender=Male,income=Medium} => {ownHome=ownYes}",0.136666666666667,0.488095238095238,1.03850050658561
+"312","{gender=Male,ownHome=ownYes} => {subscribe=subNo}",0.193333333333333,0.892307692307692,1.02958579881657
+"313","{ownHome=ownYes,subscribe=subNo} => {gender=Male}",0.193333333333333,0.471544715447154,0.989254647791233
+"314","{gender=Male,subscribe=subNo} => {ownHome=ownYes}",0.193333333333333,0.467741935483871,0.995195607412491
+"315","{age=35-54,ownHome=ownYes} => {gender=Female}",0.123333333333333,0.486842105263158,0.93027153871941
+"316","{gender=Female,ownHome=ownYes} => {age=35-54}",0.123333333333333,0.486842105263158,0.960872576177285
+"317","{age=35-54,gender=Female} => {ownHome=ownYes}",0.123333333333333,0.45679012345679,0.971893879695298
+"318","{age=35-54,ownHome=ownYes} => {income=Medium}",0.196666666666667,0.776315789473684,1.27264883520276
+"319","{income=Medium,ownHome=ownYes} => {age=35-54}",0.196666666666667,0.67816091954023,1.33847549909256
+"320","{age=35-54,income=Medium} => {ownHome=ownYes}",0.196666666666667,0.475806451612903,1.01235415236788
+"321","{age=35-54,ownHome=ownYes} => {subscribe=subNo}",0.233333333333333,0.921052631578947,1.06275303643725
+"322","{ownHome=ownYes,subscribe=subNo} => {age=35-54}",0.233333333333333,0.569105691056911,1.12323491655969
+"323","{age=35-54,subscribe=subNo} => {ownHome=ownYes}",0.233333333333333,0.518518518518518,1.10323089046493
+"324","{gender=Female,ownHome=ownYes} => {income=Medium}",0.153333333333333,0.605263157894737,0.992234685073339
+"325","{income=Medium,ownHome=ownYes} => {gender=Female}",0.153333333333333,0.528735632183908,1.01032286404568
+"326","{gender=Female,income=Medium} => {ownHome=ownYes}",0.153333333333333,0.464646464646465,0.988609499247797
+"327","{gender=Female,ownHome=ownYes} => {subscribe=subNo}",0.216666666666667,0.855263157894737,0.986842105263158
+"328","{ownHome=ownYes,subscribe=subNo} => {gender=Female}",0.216666666666667,0.528455284552846,1.00978716793537
+"329","{gender=Female,subscribe=subNo} => {ownHome=ownYes}",0.216666666666667,0.477941176470588,1.01689612015019
+"330","{income=Medium,ownHome=ownYes} => {subscribe=subNo}",0.246666666666667,0.850574712643678,0.981432360742705
+"331","{ownHome=ownYes,subscribe=subNo} => {income=Medium}",0.246666666666667,0.601626016260163,0.986272157803545
+"332","{income=Medium,subscribe=subNo} => {ownHome=ownYes}",0.246666666666667,0.468354430379747,0.996498788042014
+"333","{age=35-54,gender=Male} => {ownHome=ownNo}",0.106666666666667,0.450704225352113,0.850385330853043
+"334","{gender=Male,ownHome=ownNo} => {age=35-54}",0.106666666666667,0.41025641025641,0.809716599190283
+"335","{age=35-54,ownHome=ownNo} => {gender=Male}",0.106666666666667,0.421052631578947,0.883327199116673
+"336","{age=35-54,gender=Male} => {income=Medium}",0.196666666666667,0.830985915492958,1.36227199261141
+"337","{gender=Male,income=Medium} => {age=35-54}",0.196666666666667,0.702380952380952,1.38627819548872
+"338","{age=35-54,income=Medium} => {gender=Male}",0.196666666666667,0.475806451612903,0.998195353034063
+"339","{age=35-54,gender=Male} => {subscribe=subNo}",0.213333333333333,0.901408450704225,1.04008667388949
+"340","{gender=Male,subscribe=subNo} => {age=35-54}",0.213333333333333,0.516129032258065,1.01867572156197
+"341","{age=35-54,subscribe=subNo} => {gender=Male}",0.213333333333333,0.474074074074074,0.994560994560995
+"342","{gender=Male,ownHome=ownNo} => {income=Medium}",0.143333333333333,0.551282051282051,0.903741067675494
+"343","{gender=Male,income=Medium} => {ownHome=ownNo}",0.143333333333333,0.511904761904762,0.965858041329739
+"344","{income=Medium,ownHome=ownNo} => {gender=Male}",0.143333333333333,0.447916666666667,0.939685314685315
+"345","{gender=Male,ownHome=ownNo} => {subscribe=subNo}",0.22,0.846153846153846,0.976331360946746
+"346","{gender=Male,subscribe=subNo} => {ownHome=ownNo}",0.22,0.532258064516129,1.00426049908704
+"347","{ownHome=ownNo,subscribe=subNo} => {gender=Male}",0.22,0.481751824817518,1.01066816395284
+"348","{gender=Male,income=Medium} => {subscribe=subNo}",0.246666666666667,0.880952380952381,1.01648351648352
+"349","{gender=Male,subscribe=subNo} => {income=Medium}",0.246666666666667,0.596774193548387,0.978318350079323
+"350","{income=Medium,subscribe=subNo} => {gender=Male}",0.246666666666667,0.468354430379747,0.982561742055413
+"351","{age=35-54,gender=Female} => {ownHome=ownNo}",0.146666666666667,0.54320987654321,1.02492429536455
+"352","{age=35-54,ownHome=ownNo} => {gender=Female}",0.146666666666667,0.578947368421053,1.10626885685551
+"353","{gender=Female,ownHome=ownNo} => {age=35-54}",0.146666666666667,0.54320987654321,1.07212475633528
+"354","{age=35-54,gender=Female} => {income=Medium}",0.216666666666667,0.802469135802469,1.31552317344667
+"355","{age=35-54,income=Medium} => {gender=Female}",0.216666666666667,0.524193548387097,1.00164372303267
+"356","{gender=Female,income=Medium} => {age=35-54}",0.216666666666667,0.656565656565657,1.29585326953748
+"357","{age=35-54,gender=Female} => {subscribe=subNo}",0.236666666666667,0.876543209876543,1.01139601139601
+"358","{age=35-54,subscribe=subNo} => {gender=Female}",0.236666666666667,0.525925925925926,1.00495399858457
+"359","{gender=Female,subscribe=subNo} => {age=35-54}",0.236666666666667,0.522058823529412,1.03037925696594
+"360","{age=35-54,ownHome=ownNo} => {income=Medium}",0.216666666666667,0.855263157894737,1.40207075064711
+"361","{age=35-54,income=Medium} => {ownHome=ownNo}",0.216666666666667,0.524193548387097,0.98904443091905
+"362","{income=Medium,ownHome=ownNo} => {age=35-54}",0.216666666666667,0.677083333333333,1.33634868421053
+"363","{age=35-54,ownHome=ownNo} => {subscribe=subNo}",0.216666666666667,0.855263157894737,0.986842105263158
+"364","{age=35-54,subscribe=subNo} => {ownHome=ownNo}",0.216666666666667,0.481481481481481,0.908455625436757
+"365","{ownHome=ownNo,subscribe=subNo} => {age=35-54}",0.216666666666667,0.474452554744526,0.936419515943142
+"366","{age=35-54,income=Medium} => {subscribe=subNo}",0.36,0.870967741935484,1.00496277915633
+"367","{age=35-54,subscribe=subNo} => {income=Medium}",0.36,0.8,1.31147540983607
+"368","{income=Medium,subscribe=subNo} => {age=35-54}",0.36,0.683544303797468,1.34910059960027
+"369","{gender=Female,ownHome=ownNo} => {income=Medium}",0.176666666666667,0.654320987654321,1.07265735681036
+"370","{gender=Female,income=Medium} => {ownHome=ownNo}",0.176666666666667,0.535353535353535,1.01010101010101
+"371","{income=Medium,ownHome=ownNo} => {gender=Female}",0.176666666666667,0.552083333333333,1.05493630573248
+"372","{gender=Female,ownHome=ownNo} => {subscribe=subNo}",0.236666666666667,0.876543209876543,1.01139601139601
+"373","{gender=Female,subscribe=subNo} => {ownHome=ownNo}",0.236666666666667,0.522058823529412,0.985016648168701
+"374","{ownHome=ownNo,subscribe=subNo} => {gender=Female}",0.236666666666667,0.518248175182482,0.990283137291367
+"375","{gender=Female,income=Medium} => {subscribe=subNo}",0.28,0.848484848484849,0.979020979020979
+"376","{gender=Female,subscribe=subNo} => {income=Medium}",0.28,0.617647058823529,1.01253616200579
+"377","{income=Medium,subscribe=subNo} => {gender=Female}",0.28,0.531645569620253,1.01588325405144
+"378","{income=Medium,ownHome=ownNo} => {subscribe=subNo}",0.28,0.875,1.00961538461538
+"379","{ownHome=ownNo,subscribe=subNo} => {income=Medium}",0.28,0.613138686131387,1.00514538710063
+"380","{income=Medium,subscribe=subNo} => {ownHome=ownNo}",0.28,0.531645569620253,1.0031048483401
+"381","{age=55-64,kids=No kids,Segment=Travelers} => {subscribe=subNo}",0.11,0.868421052631579,1.00202429149798
+"382","{age=55-64,subscribe=subNo,Segment=Travelers} => {kids=No kids}",0.11,1,2.47933884297521
+"383","{age=55-64,kids=No kids,subscribe=subNo} => {Segment=Travelers}",0.11,1,3.75
+"384","{kids=No kids,subscribe=subNo,Segment=Travelers} => {age=55-64}",0.11,0.471428571428571,3.7218045112782
+"385","{age=19-24,income=Low,Segment=Urban hip} => {ownHome=ownNo}",0.1,0.789473684210526,1.48957298907646
+"386","{age=19-24,ownHome=ownNo,Segment=Urban hip} => {income=Low}",0.1,1,3.8961038961039
+"387","{age=19-24,income=Low,ownHome=ownNo} => {Segment=Urban hip}",0.1,1,6
+"388","{income=Low,ownHome=ownNo,Segment=Urban hip} => {age=19-24}",0.1,0.75,5.92105263157895
+"389","{age=19-24,income=Low,Segment=Urban hip} => {subscribe=subNo}",0.1,0.789473684210526,0.910931174089069
+"390","{age=19-24,subscribe=subNo,Segment=Urban hip} => {income=Low}",0.1,1,3.8961038961039
+"391","{age=19-24,income=Low,subscribe=subNo} => {Segment=Urban hip}",0.1,1,6
+"392","{income=Low,subscribe=subNo,Segment=Urban hip} => {age=19-24}",0.1,0.75,5.92105263157895
+"393","{income=Low,ownHome=ownNo,Segment=Urban hip} => {subscribe=subNo}",0.106666666666667,0.8,0.923076923076923
+"394","{income=Low,subscribe=subNo,Segment=Urban hip} => {ownHome=ownNo}",0.106666666666667,0.8,1.50943396226415
+"395","{ownHome=ownNo,subscribe=subNo,Segment=Urban hip} => {income=Low}",0.106666666666667,1,3.8961038961039
+"396","{income=Low,ownHome=ownNo,subscribe=subNo} => {Segment=Urban hip}",0.106666666666667,0.780487804878049,4.68292682926829
+"397","{age=35-54,income=Medium,kids=3+ kids} => {subscribe=subNo}",0.106666666666667,0.914285714285714,1.05494505494505
+"398","{age=35-54,kids=3+ kids,subscribe=subNo} => {income=Medium}",0.106666666666667,0.941176470588235,1.54291224686596
+"399","{income=Medium,kids=3+ kids,subscribe=subNo} => {age=35-54}",0.106666666666667,0.761904761904762,1.50375939849624
+"400","{age=35-54,income=Medium,Segment=Moving up} => {subscribe=subNo}",0.1,0.75,0.865384615384615
+"401","{age=35-54,subscribe=subNo,Segment=Moving up} => {income=Medium}",0.1,0.9375,1.53688524590164
+"402","{income=Medium,subscribe=subNo,Segment=Moving up} => {age=35-54}",0.1,0.625,1.23355263157895
+"403","{gender=Female,income=Medium,Segment=Moving up} => {subscribe=subNo}",0.106666666666667,0.761904761904762,0.879120879120879
+"404","{gender=Female,subscribe=subNo,Segment=Moving up} => {income=Medium}",0.106666666666667,0.842105263157895,1.38050043140638
+"405","{income=Medium,subscribe=subNo,Segment=Moving up} => {gender=Female}",0.106666666666667,0.666666666666667,1.27388535031847
+"406","{income=Medium,ownHome=ownNo,Segment=Moving up} => {subscribe=subNo}",0.103333333333333,0.794871794871795,0.917159763313609
+"407","{ownHome=ownNo,subscribe=subNo,Segment=Moving up} => {income=Medium}",0.103333333333333,0.815789473684211,1.33735979292494
+"408","{income=Medium,subscribe=subNo,Segment=Moving up} => {ownHome=ownNo}",0.103333333333333,0.645833333333333,1.2185534591195
+"409","{age=35-54,kids=1 kid,Segment=Suburb mix} => {subscribe=subNo}",0.103333333333333,0.96875,1.11778846153846
+"410","{kids=1 kid,subscribe=subNo,Segment=Suburb mix} => {age=35-54}",0.103333333333333,0.885714285714286,1.74812030075188
+"411","{age=35-54,kids=1 kid,subscribe=subNo} => {Segment=Suburb mix}",0.103333333333333,0.861111111111111,2.58333333333333
+"412","{kids=No kids,ownHome=ownYes,Segment=Travelers} => {gender=Male}",0.1,0.5,1.04895104895105
+"413","{gender=Male,kids=No kids,Segment=Travelers} => {ownHome=ownYes}",0.1,0.75,1.59574468085106
+"414","{gender=Male,ownHome=ownYes,Segment=Travelers} => {kids=No kids}",0.1,1,2.47933884297521
+"415","{gender=Male,kids=No kids,ownHome=ownYes} => {Segment=Travelers}",0.1,0.857142857142857,3.21428571428571
+"416","{kids=No kids,ownHome=ownYes,Segment=Travelers} => {gender=Female}",0.1,0.5,0.955414012738854
+"417","{gender=Female,kids=No kids,Segment=Travelers} => {ownHome=ownYes}",0.1,0.75,1.59574468085106
+"418","{gender=Female,ownHome=ownYes,Segment=Travelers} => {kids=No kids}",0.1,1,2.47933884297521
+"419","{gender=Female,kids=No kids,ownHome=ownYes} => {Segment=Travelers}",0.1,0.769230769230769,2.88461538461538
+"420","{kids=No kids,ownHome=ownYes,Segment=Travelers} => {subscribe=subNo}",0.176666666666667,0.883333333333333,1.01923076923077
+"421","{kids=No kids,subscribe=subNo,Segment=Travelers} => {ownHome=ownYes}",0.176666666666667,0.757142857142857,1.61094224924012
+"422","{ownHome=ownYes,subscribe=subNo,Segment=Travelers} => {kids=No kids}",0.176666666666667,1,2.47933884297521
+"423","{kids=No kids,ownHome=ownYes,subscribe=subNo} => {Segment=Travelers}",0.176666666666667,0.791044776119403,2.96641791044776
+"424","{gender=Male,kids=No kids,Segment=Travelers} => {subscribe=subNo}",0.11,0.825,0.951923076923077
+"425","{kids=No kids,subscribe=subNo,Segment=Travelers} => {gender=Male}",0.11,0.471428571428571,0.989010989010989
+"426","{gender=Male,subscribe=subNo,Segment=Travelers} => {kids=No kids}",0.11,1,2.47933884297521
+"427","{gender=Male,kids=No kids,subscribe=subNo} => {Segment=Travelers}",0.11,0.673469387755102,2.52551020408163
+"428","{gender=Female,kids=No kids,Segment=Travelers} => {subscribe=subNo}",0.123333333333333,0.925,1.06730769230769
+"429","{kids=No kids,subscribe=subNo,Segment=Travelers} => {gender=Female}",0.123333333333333,0.528571428571429,1.01000909918107
+"430","{gender=Female,subscribe=subNo,Segment=Travelers} => {kids=No kids}",0.123333333333333,1,2.47933884297521
+"431","{gender=Female,kids=No kids,subscribe=subNo} => {Segment=Travelers}",0.123333333333333,0.616666666666667,2.3125
+"432","{income=Medium,kids=No kids,Segment=Travelers} => {subscribe=subNo}",0.116666666666667,0.853658536585366,0.984990619136961
+"433","{kids=No kids,subscribe=subNo,Segment=Travelers} => {income=Medium}",0.116666666666667,0.5,0.819672131147541
+"434","{income=Medium,subscribe=subNo,Segment=Travelers} => {kids=No kids}",0.116666666666667,1,2.47933884297521
+"435","{income=Medium,kids=No kids,subscribe=subNo} => {Segment=Travelers}",0.116666666666667,0.636363636363636,2.38636363636364
+"436","{age=35-54,ownHome=ownYes,Segment=Suburb mix} => {income=Medium}",0.11,0.825,1.35245901639344
+"437","{income=Medium,ownHome=ownYes,Segment=Suburb mix} => {age=35-54}",0.11,0.868421052631579,1.71398891966759
+"438","{age=35-54,income=Medium,Segment=Suburb mix} => {ownHome=ownYes}",0.11,0.492537313432836,1.04795173070816
+"439","{age=35-54,income=Medium,ownHome=ownYes} => {Segment=Suburb mix}",0.11,0.559322033898305,1.67796610169492
+"440","{age=35-54,ownHome=ownYes,Segment=Suburb mix} => {subscribe=subNo}",0.13,0.975,1.125
+"441","{ownHome=ownYes,subscribe=subNo,Segment=Suburb mix} => {age=35-54}",0.13,0.886363636363636,1.7494019138756
+"442","{age=35-54,subscribe=subNo,Segment=Suburb mix} => {ownHome=ownYes}",0.13,0.5,1.06382978723404
+"443","{age=35-54,ownHome=ownYes,subscribe=subNo} => {Segment=Suburb mix}",0.13,0.557142857142857,1.67142857142857
+"444","{income=Medium,ownHome=ownYes,Segment=Suburb mix} => {subscribe=subNo}",0.113333333333333,0.894736842105263,1.03238866396761
+"445","{ownHome=ownYes,subscribe=subNo,Segment=Suburb mix} => {income=Medium}",0.113333333333333,0.772727272727273,1.26676602086438
+"446","{income=Medium,subscribe=subNo,Segment=Suburb mix} => {ownHome=ownYes}",0.113333333333333,0.453333333333333,0.964539007092199
+"447","{income=Medium,ownHome=ownYes,subscribe=subNo} => {Segment=Suburb mix}",0.113333333333333,0.459459459459459,1.37837837837838
+"448","{age=35-54,gender=Male,Segment=Suburb mix} => {income=Medium}",0.116666666666667,0.853658536585366,1.39944022391044
+"449","{gender=Male,income=Medium,Segment=Suburb mix} => {age=35-54}",0.116666666666667,0.813953488372093,1.60648714810282
+"450","{age=35-54,income=Medium,Segment=Suburb mix} => {gender=Male}",0.116666666666667,0.522388059701492,1.09591900636677
+"451","{age=35-54,gender=Male,income=Medium} => {Segment=Suburb mix}",0.116666666666667,0.593220338983051,1.77966101694915
+"452","{age=35-54,gender=Male,Segment=Suburb mix} => {subscribe=subNo}",0.13,0.951219512195122,1.09756097560976
+"453","{gender=Male,subscribe=subNo,Segment=Suburb mix} => {age=35-54}",0.13,0.795918367346939,1.57089151450054
+"454","{age=35-54,subscribe=subNo,Segment=Suburb mix} => {gender=Male}",0.13,0.5,1.04895104895105
+"455","{age=35-54,gender=Male,subscribe=subNo} => {Segment=Suburb mix}",0.13,0.609375,1.828125
+"456","{gender=Male,income=Medium,Segment=Suburb mix} => {subscribe=subNo}",0.133333333333333,0.930232558139535,1.07334525939177
+"457","{gender=Male,subscribe=subNo,Segment=Suburb mix} => {income=Medium}",0.133333333333333,0.816326530612245,1.33824021411843
+"458","{income=Medium,subscribe=subNo,Segment=Suburb mix} => {gender=Male}",0.133333333333333,0.533333333333333,1.11888111888112
+"459","{gender=Male,income=Medium,subscribe=subNo} => {Segment=Suburb mix}",0.133333333333333,0.540540540540541,1.62162162162162
+"460","{age=35-54,gender=Female,Segment=Suburb mix} => {income=Medium}",0.106666666666667,0.8,1.31147540983607
+"461","{age=35-54,income=Medium,Segment=Suburb mix} => {gender=Female}",0.106666666666667,0.477611940298507,0.912634280825173
+"462","{gender=Female,income=Medium,Segment=Suburb mix} => {age=35-54}",0.106666666666667,0.842105263157895,1.66204986149584
+"463","{age=35-54,gender=Female,income=Medium} => {Segment=Suburb mix}",0.106666666666667,0.492307692307692,1.47692307692308
+"464","{age=35-54,gender=Female,Segment=Suburb mix} => {subscribe=subNo}",0.13,0.975,1.125
+"465","{age=35-54,subscribe=subNo,Segment=Suburb mix} => {gender=Female}",0.13,0.5,0.955414012738854
+"466","{gender=Female,subscribe=subNo,Segment=Suburb mix} => {age=35-54}",0.13,0.866666666666667,1.71052631578947
+"467","{age=35-54,gender=Female,subscribe=subNo} => {Segment=Suburb mix}",0.13,0.549295774647887,1.64788732394366
+"468","{age=35-54,ownHome=ownNo,Segment=Suburb mix} => {income=Medium}",0.113333333333333,0.829268292682927,1.35945621751299
+"469","{age=35-54,income=Medium,Segment=Suburb mix} => {ownHome=ownNo}",0.113333333333333,0.507462686567164,0.957476767107857
+"470","{income=Medium,ownHome=ownNo,Segment=Suburb mix} => {age=35-54}",0.113333333333333,0.790697674418605,1.56058751529988
+"471","{age=35-54,income=Medium,ownHome=ownNo} => {Segment=Suburb mix}",0.113333333333333,0.523076923076923,1.56923076923077
+"472","{age=35-54,ownHome=ownNo,Segment=Suburb mix} => {subscribe=subNo}",0.13,0.951219512195122,1.09756097560976
+"473","{age=35-54,subscribe=subNo,Segment=Suburb mix} => {ownHome=ownNo}",0.13,0.5,0.943396226415094
+"474","{ownHome=ownNo,subscribe=subNo,Segment=Suburb mix} => {age=35-54}",0.13,0.78,1.53947368421053
+"475","{age=35-54,ownHome=ownNo,subscribe=subNo} => {Segment=Suburb mix}",0.13,0.6,1.8
+"476","{age=35-54,income=Medium,Segment=Suburb mix} => {subscribe=subNo}",0.213333333333333,0.955223880597015,1.10218140068886
+"477","{age=35-54,subscribe=subNo,Segment=Suburb mix} => {income=Medium}",0.213333333333333,0.82051282051282,1.34510298444725
+"478","{income=Medium,subscribe=subNo,Segment=Suburb mix} => {age=35-54}",0.213333333333333,0.853333333333333,1.68421052631579
+"479","{age=35-54,income=Medium,subscribe=subNo} => {Segment=Suburb mix}",0.213333333333333,0.592592592592593,1.77777777777778
+"480","{gender=Female,income=Medium,Segment=Suburb mix} => {subscribe=subNo}",0.116666666666667,0.921052631578947,1.06275303643725
+"481","{gender=Female,subscribe=subNo,Segment=Suburb mix} => {income=Medium}",0.116666666666667,0.777777777777778,1.27504553734062
+"482","{income=Medium,subscribe=subNo,Segment=Suburb mix} => {gender=Female}",0.116666666666667,0.466666666666667,0.89171974522293
+"483","{gender=Female,income=Medium,subscribe=subNo} => {Segment=Suburb mix}",0.116666666666667,0.416666666666667,1.25
+"484","{income=Medium,ownHome=ownNo,Segment=Suburb mix} => {subscribe=subNo}",0.136666666666667,0.953488372093023,1.10017889087657
+"485","{ownHome=ownNo,subscribe=subNo,Segment=Suburb mix} => {income=Medium}",0.136666666666667,0.82,1.34426229508197
+"486","{income=Medium,subscribe=subNo,Segment=Suburb mix} => {ownHome=ownNo}",0.136666666666667,0.546666666666667,1.0314465408805
+"487","{income=Medium,ownHome=ownNo,subscribe=subNo} => {Segment=Suburb mix}",0.136666666666667,0.488095238095238,1.46428571428571
+"488","{gender=Male,kids=No kids,ownHome=ownYes} => {subscribe=subNo}",0.103333333333333,0.885714285714286,1.02197802197802
+"489","{kids=No kids,ownHome=ownYes,subscribe=subNo} => {gender=Male}",0.103333333333333,0.462686567164179,0.970671119924851
+"490","{gender=Male,kids=No kids,subscribe=subNo} => {ownHome=ownYes}",0.103333333333333,0.63265306122449,1.34607034303083
+"491","{gender=Male,ownHome=ownYes,subscribe=subNo} => {kids=No kids}",0.103333333333333,0.53448275862069,1.32516386434882
+"492","{gender=Female,kids=No kids,ownHome=ownYes} => {subscribe=subNo}",0.12,0.923076923076923,1.06508875739645
+"493","{kids=No kids,ownHome=ownYes,subscribe=subNo} => {gender=Female}",0.12,0.537313432835821,1.02671356592832
+"494","{gender=Female,kids=No kids,subscribe=subNo} => {ownHome=ownYes}",0.12,0.6,1.27659574468085
+"495","{gender=Female,ownHome=ownYes,subscribe=subNo} => {kids=No kids}",0.12,0.553846153846154,1.37317228226319
+"496","{income=Medium,kids=No kids,ownHome=ownYes} => {subscribe=subNo}",0.11,0.891891891891892,1.02910602910603
+"497","{kids=No kids,ownHome=ownYes,subscribe=subNo} => {income=Medium}",0.11,0.492537313432836,0.807438218742354
+"498","{income=Medium,kids=No kids,subscribe=subNo} => {ownHome=ownYes}",0.11,0.6,1.27659574468085
+"499","{income=Medium,ownHome=ownYes,subscribe=subNo} => {kids=No kids}",0.11,0.445945945945946,1.10565110565111
+"500","{age=35-54,income=Medium,kids=No kids} => {subscribe=subNo}",0.1,0.882352941176471,1.01809954751131
+"501","{age=35-54,kids=No kids,subscribe=subNo} => {income=Medium}",0.1,0.714285714285714,1.17096018735363
+"502","{income=Medium,kids=No kids,subscribe=subNo} => {age=35-54}",0.1,0.545454545454545,1.07655502392344
+"503","{age=35-54,gender=Male,ownHome=ownYes} => {income=Medium}",0.103333333333333,0.794871794871795,1.30306851618327
+"504","{gender=Male,income=Medium,ownHome=ownYes} => {age=35-54}",0.103333333333333,0.75609756097561,1.49229781771502
+"505","{age=35-54,income=Medium,ownHome=ownYes} => {gender=Male}",0.103333333333333,0.525423728813559,1.10228754296551
+"506","{age=35-54,gender=Male,income=Medium} => {ownHome=ownYes}",0.103333333333333,0.525423728813559,1.11792282726289
+"507","{age=35-54,gender=Male,ownHome=ownYes} => {subscribe=subNo}",0.123333333333333,0.948717948717949,1.09467455621302
+"508","{gender=Male,ownHome=ownYes,subscribe=subNo} => {age=35-54}",0.123333333333333,0.637931034482759,1.25907441016334
+"509","{age=35-54,ownHome=ownYes,subscribe=subNo} => {gender=Male}",0.123333333333333,0.528571428571429,1.10889110889111
+"510","{age=35-54,gender=Male,subscribe=subNo} => {ownHome=ownYes}",0.123333333333333,0.578125,1.23005319148936
+"511","{gender=Male,income=Medium,ownHome=ownYes} => {subscribe=subNo}",0.123333333333333,0.902439024390244,1.04127579737336
+"512","{gender=Male,ownHome=ownYes,subscribe=subNo} => {income=Medium}",0.123333333333333,0.637931034482759,1.04578858111928
+"513","{income=Medium,ownHome=ownYes,subscribe=subNo} => {gender=Male}",0.123333333333333,0.5,1.04895104895105
+"514","{gender=Male,income=Medium,subscribe=subNo} => {ownHome=ownYes}",0.123333333333333,0.5,1.06382978723404
+"515","{age=35-54,gender=Female,ownHome=ownYes} => {subscribe=subNo}",0.11,0.891891891891892,1.02910602910603
+"516","{age=35-54,ownHome=ownYes,subscribe=subNo} => {gender=Female}",0.11,0.471428571428571,0.900818926296633
+"517","{gender=Female,ownHome=ownYes,subscribe=subNo} => {age=35-54}",0.11,0.507692307692308,1.00202429149798
+"518","{age=35-54,gender=Female,subscribe=subNo} => {ownHome=ownYes}",0.11,0.464788732394366,0.988912196583758
+"519","{age=35-54,income=Medium,ownHome=ownYes} => {subscribe=subNo}",0.176666666666667,0.898305084745763,1.03650586701434
+"520","{age=35-54,ownHome=ownYes,subscribe=subNo} => {income=Medium}",0.176666666666667,0.757142857142857,1.24121779859485
+"521","{income=Medium,ownHome=ownYes,subscribe=subNo} => {age=35-54}",0.176666666666667,0.716216216216216,1.41358463726885
+"522","{age=35-54,income=Medium,subscribe=subNo} => {ownHome=ownYes}",0.176666666666667,0.490740740740741,1.0441292356186
+"523","{gender=Female,income=Medium,ownHome=ownYes} => {subscribe=subNo}",0.123333333333333,0.804347826086957,0.92809364548495
+"524","{gender=Female,ownHome=ownYes,subscribe=subNo} => {income=Medium}",0.123333333333333,0.569230769230769,0.933165195460277
+"525","{income=Medium,ownHome=ownYes,subscribe=subNo} => {gender=Female}",0.123333333333333,0.5,0.955414012738854
+"526","{gender=Female,income=Medium,subscribe=subNo} => {ownHome=ownYes}",0.123333333333333,0.44047619047619,0.937183383991895
+"527","{age=35-54,gender=Male,income=Medium} => {subscribe=subNo}",0.173333333333333,0.88135593220339,1.01694915254237
+"528","{age=35-54,gender=Male,subscribe=subNo} => {income=Medium}",0.173333333333333,0.8125,1.33196721311475
+"529","{gender=Male,income=Medium,subscribe=subNo} => {age=35-54}",0.173333333333333,0.702702702702703,1.38691322901849
+"530","{age=35-54,income=Medium,subscribe=subNo} => {gender=Male}",0.173333333333333,0.481481481481481,1.01010101010101
+"531","{gender=Male,income=Medium,ownHome=ownNo} => {subscribe=subNo}",0.123333333333333,0.86046511627907,0.992844364937388
+"532","{gender=Male,ownHome=ownNo,subscribe=subNo} => {income=Medium}",0.123333333333333,0.560606060606061,0.919026328862394
+"533","{gender=Male,income=Medium,subscribe=subNo} => {ownHome=ownNo}",0.123333333333333,0.5,0.943396226415094
+"534","{income=Medium,ownHome=ownNo,subscribe=subNo} => {gender=Male}",0.123333333333333,0.44047619047619,0.924075924075924
+"535","{age=35-54,gender=Female,ownHome=ownNo} => {income=Medium}",0.123333333333333,0.840909090909091,1.37853949329359
+"536","{age=35-54,gender=Female,income=Medium} => {ownHome=ownNo}",0.123333333333333,0.569230769230769,1.07402031930334
+"537","{age=35-54,income=Medium,ownHome=ownNo} => {gender=Female}",0.123333333333333,0.569230769230769,1.08770210681039
+"538","{gender=Female,income=Medium,ownHome=ownNo} => {age=35-54}",0.123333333333333,0.69811320754717,1.37785501489573
+"539","{age=35-54,gender=Female,ownHome=ownNo} => {subscribe=subNo}",0.126666666666667,0.863636363636364,0.996503496503497
+"540","{age=35-54,gender=Female,subscribe=subNo} => {ownHome=ownNo}",0.126666666666667,0.535211267605634,1.00983258038799
+"541","{age=35-54,ownHome=ownNo,subscribe=subNo} => {gender=Female}",0.126666666666667,0.584615384615385,1.11709946104851
+"542","{gender=Female,ownHome=ownNo,subscribe=subNo} => {age=35-54}",0.126666666666667,0.535211267605634,1.05633802816901
+"543","{age=35-54,gender=Female,income=Medium} => {subscribe=subNo}",0.186666666666667,0.861538461538462,0.994082840236686
+"544","{age=35-54,gender=Female,subscribe=subNo} => {income=Medium}",0.186666666666667,0.788732394366197,1.29300392519049
+"545","{age=35-54,income=Medium,subscribe=subNo} => {gender=Female}",0.186666666666667,0.518518518518518,0.990799716914367
+"546","{gender=Female,income=Medium,subscribe=subNo} => {age=35-54}",0.186666666666667,0.666666666666667,1.31578947368421
+"547","{age=35-54,income=Medium,ownHome=ownNo} => {subscribe=subNo}",0.183333333333333,0.846153846153846,0.976331360946746
+"548","{age=35-54,ownHome=ownNo,subscribe=subNo} => {income=Medium}",0.183333333333333,0.846153846153846,1.38713745271122
+"549","{age=35-54,income=Medium,subscribe=subNo} => {ownHome=ownNo}",0.183333333333333,0.509259259259259,0.960866526904263
+"550","{income=Medium,ownHome=ownNo,subscribe=subNo} => {age=35-54}",0.183333333333333,0.654761904761905,1.29229323308271
+"551","{gender=Female,income=Medium,ownHome=ownNo} => {subscribe=subNo}",0.156666666666667,0.886792452830189,1.02322206095791
+"552","{gender=Female,ownHome=ownNo,subscribe=subNo} => {income=Medium}",0.156666666666667,0.661971830985915,1.08519972292773
+"553","{gender=Female,income=Medium,subscribe=subNo} => {ownHome=ownNo}",0.156666666666667,0.55952380952381,1.05570530098832
+"554","{income=Medium,ownHome=ownNo,subscribe=subNo} => {gender=Female}",0.156666666666667,0.55952380952381,1.06915377616015
+"555","{age=35-54,income=Medium,ownHome=ownYes,Segment=Suburb mix} => {subscribe=subNo}",0.106666666666667,0.96969696969697,1.11888111888112
+"556","{age=35-54,ownHome=ownYes,subscribe=subNo,Segment=Suburb mix} => {income=Medium}",0.106666666666667,0.82051282051282,1.34510298444725
+"557","{income=Medium,ownHome=ownYes,subscribe=subNo,Segment=Suburb mix} => {age=35-54}",0.106666666666667,0.941176470588235,1.85758513931889
+"558","{age=35-54,income=Medium,subscribe=subNo,Segment=Suburb mix} => {ownHome=ownYes}",0.106666666666667,0.5,1.06382978723404
+"559","{age=35-54,income=Medium,ownHome=ownYes,subscribe=subNo} => {Segment=Suburb mix}",0.106666666666667,0.60377358490566,1.81132075471698
+"560","{age=35-54,gender=Male,income=Medium,Segment=Suburb mix} => {subscribe=subNo}",0.11,0.942857142857143,1.08791208791209
+"561","{age=35-54,gender=Male,subscribe=subNo,Segment=Suburb mix} => {income=Medium}",0.11,0.846153846153846,1.38713745271122
+"562","{gender=Male,income=Medium,subscribe=subNo,Segment=Suburb mix} => {age=35-54}",0.11,0.825,1.62828947368421
+"563","{age=35-54,income=Medium,subscribe=subNo,Segment=Suburb mix} => {gender=Male}",0.11,0.515625,1.08173076923077
+"564","{age=35-54,gender=Male,income=Medium,subscribe=subNo} => {Segment=Suburb mix}",0.11,0.634615384615385,1.90384615384615
+"565","{age=35-54,gender=Female,income=Medium,Segment=Suburb mix} => {subscribe=subNo}",0.103333333333333,0.96875,1.11778846153846
+"566","{age=35-54,gender=Female,subscribe=subNo,Segment=Suburb mix} => {income=Medium}",0.103333333333333,0.794871794871795,1.30306851618327
+"567","{age=35-54,income=Medium,subscribe=subNo,Segment=Suburb mix} => {gender=Female}",0.103333333333333,0.484375,0.925557324840764
+"568","{gender=Female,income=Medium,subscribe=subNo,Segment=Suburb mix} => {age=35-54}",0.103333333333333,0.885714285714286,1.74812030075188
+"569","{age=35-54,gender=Female,income=Medium,subscribe=subNo} => {Segment=Suburb mix}",0.103333333333333,0.553571428571429,1.66071428571429
+"570","{age=35-54,income=Medium,ownHome=ownNo,Segment=Suburb mix} => {subscribe=subNo}",0.106666666666667,0.941176470588235,1.08597285067873
+"571","{age=35-54,ownHome=ownNo,subscribe=subNo,Segment=Suburb mix} => {income=Medium}",0.106666666666667,0.82051282051282,1.34510298444725
+"572","{age=35-54,income=Medium,subscribe=subNo,Segment=Suburb mix} => {ownHome=ownNo}",0.106666666666667,0.5,0.943396226415094
+"573","{income=Medium,ownHome=ownNo,subscribe=subNo,Segment=Suburb mix} => {age=35-54}",0.106666666666667,0.780487804878049,1.54043645699615
+"574","{age=35-54,income=Medium,ownHome=ownNo,subscribe=subNo} => {Segment=Suburb mix}",0.106666666666667,0.581818181818182,1.74545454545455
+"575","{age=35-54,gender=Female,income=Medium,ownHome=ownNo} => {subscribe=subNo}",0.106666666666667,0.864864864864865,0.997920997920998
+"576","{age=35-54,gender=Female,ownHome=ownNo,subscribe=subNo} => {income=Medium}",0.106666666666667,0.842105263157895,1.38050043140638
+"577","{age=35-54,gender=Female,income=Medium,subscribe=subNo} => {ownHome=ownNo}",0.106666666666667,0.571428571428571,1.07816711590296
+"578","{age=35-54,income=Medium,ownHome=ownNo,subscribe=subNo} => {gender=Female}",0.106666666666667,0.581818181818182,1.11175448755067
+"579","{gender=Female,income=Medium,ownHome=ownNo,subscribe=subNo} => {age=35-54}",0.106666666666667,0.680851063829787,1.3437849944009

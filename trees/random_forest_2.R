@@ -10,62 +10,18 @@ seg.summ <- function(data, groups) {
 }
 seg.summ(seg.df, seg.raw$Segment)
 
-#### CLASSIFICATION
-
-#### NAIVE BAYES
-set.seed(04625)
-train.prop  <- 0.65
-train.cases <- sample(nrow(seg.raw), nrow(seg.raw)*train.prop)
-seg.df.train <- seg.raw[train.cases, ]
-seg.df.test  <- seg.raw[-train.cases, ]
-
-library(e1071)
-(seg.nb <- naiveBayes(Segment ~ ., data=seg.df.train))
-(seg.nb.class <- predict(seg.nb, seg.df.test))
-
-# frequencies in predicted data
-prop.table(table(seg.nb.class))
-
-# plot it
-clusplot(seg.df.test[, -7], seg.nb.class, color=TRUE, shade=TRUE, 
-         labels=4, lines=0, 
-         main="Naive Bayes classification, holdout data")
-
-
-# compare to known segments (which we can do with this test data)
-mean(seg.df.test$Segment==seg.nb.class)
-
-# adjusted for chance
-library(mclust)
-adjustedRandIndex(seg.nb.class, seg.df.test$Segment)
-
-table(seg.nb.class, seg.df.test$Segment)
-
-# summary data for proposed segments in the test data
-seg.summ(seg.df.test, seg.nb.class)
-# summary data for the known segments in the test data
-seg.summ(seg.df.test, seg.df.test$Segment)
-
-# predict raw probabilities
-predict(seg.nb, seg.df.test, type="raw")
-
-
 #### random forest
 library(randomForest)
 set.seed(98040)
 (seg.rf <- randomForest(Segment ~ ., data=seg.df.train, ntree=3000))
-
 
 # predict the test data for random forest
 seg.rf.class <- predict(seg.rf, seg.df.test)
 
 # plot the solution
 library(cluster)
-
 clusplot(seg.df.test[, -7], seg.rf.class, color=TRUE, shade=TRUE, 
          labels=4, lines=0, main="Random Forest classification, holdout data")
-
-
 
 # get the individual prediction distribution
 seg.rf.class.all <- predict(seg.rf, seg.df.test, predict.all=TRUE)
@@ -84,31 +40,25 @@ table(seg.df.test$Segment, seg.rf.class)
 library(mclust)
 adjustedRandIndex(seg.df.test$Segment, seg.rf.class)
 
-
 ### random forest variable importance
 set.seed(98040)
 (seg.rf <- randomForest(Segment ~ ., data=seg.df.train, ntree=3000,
                         importance=TRUE))
 
 importance(seg.rf)
-
 varImpPlot(seg.rf, main="Variable importance by segment")
 
 library(gplots)
 library(RColorBrewer)
-
-
 heatmap.2(t(importance(seg.rf)[ , 1:4]), 
           col=brewer.pal(9, "Blues"), 
-          dend="none", trace="none", key=FALSE,
+          dend="none", trace="none", key=T,
           margins=c(10, 10),
-          main="Variable importance by segment"
+          main="Variable importance"
           )
 
 
-
 #### predict subscription status
-
 #### using random forest
 
 set.seed(92118)
@@ -117,12 +67,9 @@ train.cases <- sample(nrow(seg.df), nrow(seg.df)*train.prop)
 sub.df.train <- seg.raw[train.cases, ]
 sub.df.test  <- seg.raw[-train.cases, ]
 
-
 # see how differentiated the subscribers are, in the training data
-
 clusplot(sub.df.train[, -6], sub.df.train$subscribe, color=TRUE, shade=TRUE, 
          labels=4, lines=0, main="Subscriber clusters, training data")
-
 
 library(randomForest)
 set.seed(11954)
@@ -143,7 +90,3 @@ adjustedRandIndex(sub.rf.sub, sub.df.test$subscribe)
 
 library(psych)
 cohen.kappa(cbind(sub.rf.sub, sub.df.test$subscribe))
-
-
-
-
