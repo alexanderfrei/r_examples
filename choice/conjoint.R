@@ -4,7 +4,6 @@ library(MASS)
 cbc.df <- read.csv("data/cbc.csv", 
                    colClasses = c(seat = "factor", price = "factor"))
 #####
-
 attrib <- list(seat = c("6", "7", "8"),
                cargo = c("2ft", "3ft"),
                eng = c("gas", "hyb", "elec"),
@@ -22,6 +21,7 @@ library(mlogit)
 cbc.mlogit <- mlogit.data(data=cbc.df, choice="choice", shape="long", 
                           varying=3:6, alt.levels=paste("pos",1:3), 
                           id.var="resp.id")
+
 # o + mean without intercept 
 # intercept in cbc is position of answer and should be unsignificant
 m1 <- mlogit(choice ~ 0 + seat + cargo + eng + price, data = cbc.mlogit)
@@ -34,11 +34,20 @@ m3 <- mlogit(choice ~ 0 + seat + cargo + eng
 summary(m3)
 lrtest(m1, m3)
 
+
+new.data <- expand.grid(attrib)[c(8, 1, 3, 41, 49, 26), ]
+data.model <- model.matrix(update(m3$formula, 0 ~ .), data = new.data)[,-1]
+utility <- data.model%*%m3$coef
+utility
+data.model
+
 ###### Willingness to pay
 # prices were recorded in 1,000s of dollars
 coef(m3)["cargo3ft"]/(-coef(m3)["as.numeric(as.character(price))"]) * 1000
 # 2700$ for cargo3ft: mean in general, that customer prefer
 # cargo2ft to cargo3ft if price delta beetween more 2700$
+
+data.model%*%m3$coef
 
 ###### Predicting shares
 predict.mnl <- function(model, data) {
@@ -159,7 +168,7 @@ head(hb.post$betadraw[,,567])
 str(hb.post$betadraw)
 beta.post.mean <- apply(hb.post$betadraw, 1:2, mean)
 dim(beta.post.mean)
-
+beta.post.mean
 # check uncertainty with confidence intervals
 beta.post.q05 <- apply(hb.post$betadraw, 1:2, quantile, probs=c(0.05))
 beta.post.q95 <- apply(hb.post$betadraw, 1:2, quantile, probs=c(0.95))
@@ -193,3 +202,4 @@ predict.hb.mnl(hb.post$betadraw, new.data, hb.post)
 # simulating
 new.data[2,1] <- 7
 predict.hb.mnl(hb.post$betadraw, new.data, hb.post)
+
