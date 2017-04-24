@@ -139,7 +139,7 @@ for (i in 1:100)
   lgtdata[[i]]=list(y=ty,X=as.matrix(tdesign))
 }
 
-head(lgtdata,1)
+head(lgtdata,2)
 
 ###################################################### 
 # estimate

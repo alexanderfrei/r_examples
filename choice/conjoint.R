@@ -3,6 +3,7 @@ library(MASS)
 # long format data
 cbc.df <- read.csv("data/cbc.csv", 
                    colClasses = c(seat = "factor", price = "factor"))
+
 #####
 attrib <- list(seat = c("6", "7", "8"),
                cargo = c("2ft", "3ft"),
