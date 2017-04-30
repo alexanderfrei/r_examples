@@ -1,4 +1,4 @@
-# setwd('practice/16-092464')
+setwd('practice/16-092464')
 library(plyr)
 library(dplyr)
 library(cluster)
@@ -6,8 +6,10 @@ library(Rtsne)
 library(ggplot2) 
 library(psych)
 library(car)
+library(dbscan)
 
 df <- read.csv("segm.csv", sep=";")
+
 colnames(df)[1] <- "daytime"
 df$transport <- NULL
 
@@ -16,20 +18,6 @@ df$daytime <- mapvalues(as.factor(df$daytime), from = c("1", "2", "3", "4"), to 
 
 multi <- grep("(a5_|a51_|a7_).*", colnames(df))
 df[multi] <- data.frame(apply(df[multi], 2, as.factor))
-
-# df$a6from_1 <- mapvalues(as.factor(df$a6from_1),
-#                          from = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "98"),
-#                          to = c("Home", "Workplace", "Education", "Classes / training", "Gym/fitness", "Extra classes for child", "Kindergarten / school for child", "Metro station", "Hospital", "Other government institutions", "Airport", "Railway station", "Bus terminal", "Grocery store", "Clothing store", "Shopping mall inside MKAD", "Sopping mall outside or on MKAD", "Friends' place", "Relatives' place", "Restaurant / cafe /bar", "Theatre / Circus / Museum", "Club", "Countryside", "Picnic", "Park", "Other city outside Moscow region", "Other city in Moscow region", "Client meeting", "Other"),
-#                          )
-# 
-# df$a6to_1 <- mapvalues(as.factor(df$a6to_1),
-#                        from = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "98"),
-#                        to = c("Home", "Workplace", "Education", "Classes / training", "Gym/fitness", "Extra classes for child", "Kindergarten / school for child", "Metro station", "Hospital", "Other government institutions", "Airport", "Railway station", "Bus terminal", "Grocery store", "Clothing store", "Shopping mall inside MKAD", "Sopping mall outside or on MKAD", "Friends' place", "Relatives' place", "Restaurant / cafe /bar", "Theatre / Circus / Museum", "Club", "Countryside", "Picnic", "Park", "Other city outside Moscow region", "Other city in Moscow region", "Client meeting", "Other")
-#                        )
-# 
-# df$a8_1 <- mapvalues(as.factor(df$a8_1), 
-#                      from = c("1", "2", "3", "4", "5", "6", "7", "8"),
-#                      to = c("Me", "Partner", "Child", "Parents", "Relatives", "Friends", "Colleague", "Employer"))
 
 df$a6from_1 <- as.factor(recode(df$a6from_1, "1='From_home'; 2='From_workplace'; 3:hi='From_other'"))
 df$a6to_1 <- as.factor(recode(df$a6to_1, "1='To_home'; 2='To_workplace'; 3:hi='To_other'"))
@@ -41,16 +29,8 @@ df$a91_1.2 <- as.factor(recode(df$a91_1.2, "0:14='0-14m';
                                15:29='15-29m'; 
                                30:hi='30m+'"))
 
-# TODO: factor from binary answers
-# TODO: try DBSCAN 
-
-# rename cols
-# names(df)[names(df) == 'a91_1.2'] <- 'trip_duration'
-
 ### dist
 
-gower_dist <- daisy(df, metric = "gower")
-gower_dist <- daisy(df, metric = "gower")
 gower_dist <- daisy(df, metric = "gower")
 
 ### silhouette plot
@@ -87,10 +67,23 @@ pam.4 <- pam(gower_dist, diss = TRUE, k = 4)
 pam.5 <- pam(gower_dist, diss = TRUE, k = 5)
 
 ### hclust
-hclust.2 <- cutree(hclust(gower_dist, method="ward.D2"), 2)
+
 hclust.3 <- cutree(hclust(gower_dist, method="ward.D2"), 3)
 hclust.4 <- cutree(hclust(gower_dist, method="ward.D2"), 4)
 hclust.5 <- cutree(hclust(gower_dist, method="ward.D2"), 5)
+hclust.6 <- cutree(hclust(gower_dist, method="ward.D2"), 6)
+
+### dbscan
+
+dbscan.fit <- dbscan(gower_dist, eps=0.05, minPts = 10)
+dbscan.fit$cluster <- recode(dbscan.fit$cluster, "2:hi=0")
+table(dbscan.fit$cluster)
+
+### k-means
+
+kmeans.3 <- kmeans(gower_dist, centers=3, nstart = 10)
+kmeans.4 <- kmeans(gower_dist, centers=4, nstart = 10)
+kmeans.5 <- kmeans(gower_dist, centers=5, nstart = 10)
 
 ### t-sne plot
 tsne_obj <- Rtsne(gower_dist, is_distance = TRUE)
@@ -102,11 +95,12 @@ plot_tsne <- function(tsne_obj, clusters) {
   mutate(cluster = factor(clusters))
 }
 
-tsne_data <- plot_tsne(tsne_obj, hclust.5)
+tsne_data <- plot_tsne(tsne_obj, hclust.6)
 ggplot(aes(x = X, y = Y), data = tsne_data) +
   geom_point(aes(color = cluster))
 
-### output 
+### write output 
 
-cutree(hclust.fit, 4)
-
+case_id <- 1:dim(df)[1]
+df_clusters <- cbind(case_id, hclust.3, hclust.4, hclust.5, hclust.6)
+write.csv2(df_clusters, "g:/Job/Uber segm/clusters.csv", row.names = F)
