@@ -9,6 +9,9 @@ library(car)
 library(dplyr)
 library(psych)
 
+library("factoextra")
+library("FactoMineR")
+
 df <- read.csv("segm.csv", sep=";")
 
 ##################################################################################################
@@ -68,7 +71,10 @@ recode.small.val <- function(var, val){
 df$a6from_1 <- recode.small.val(df$a6from_1, 50)
 df$a6to_1 <- recode.small.val(df$a6to_1, 50)
 
-# to_drop <- c("a6from_1", "a6to_1", "a8_1", "trip_duration", "interval")
+
+fac <- c("a6from_1", "a6to_1", "a8_1", "trip_duration", "daytime")
+dm <- grepl("(a51_|a7_).*",colnames(df))
+
 # dummy(data=df, x="a8_1", sep = ".")
 
 ##################################################################################################
@@ -97,19 +103,25 @@ taxi.rules <- as.data.frame(mine.rules("taxi", 0.003))$lhs[1:10]
 
 land.rules
 
+##################################################################################################
+### transport pca
 
+prep_pca <- function(transport){
+  base <- sum(df[[transport]])
+  fac_ <- unlist(apply(df[df[[transport]], fac], 2, function(x) table(x) / base))
+  dm_ <-  unlist(apply(df[df[[transport]], dm], 2, function(x) table(x)[2] / base))
+  fac_[is.na(fac_)] <- 0
+  dm_[is.na(dm_)] <- 0
+  c(fac_,dm_)
+}
 
-# inspect(subset( rules.sorted, subset = rhs %pin% "a5_" & (!lhs %pin% "a5_")))
+land_transport <- prep_pca("land_transport")
+metro <- prep_pca("metro")
+train <- prep_pca("train")
+personal_car <- prep_pca("personal_car")
+company_car <- prep_pca("company_car")
+taxi <- prep_pca("taxi")
 
-
-
-# rdf <- as.data.frame(
-# inspect(subset( rules.sorted, subset = rhs %pin% "a5_1.9" & (!lhs %pin% "a5_")))
-# )
-
-# itemFrequencyPlot(df.trans, topN=30,  cex.names=.8)
-# as(trans[1:10,], "matrix")
-
-# trans_bus <- subset(trans, items %in% "a5_1.1")
-# itemFrequencyPlot(trans_bus, topN = 10, population = trans, lift=F, cex.names=1)
-# discretize(1:100, method="frequency", 3)
+transport.pca <- rbind(land_transport, metro, train, personal_car, company_car, taxi)
+res.pca <- PCA(transport.pca,  graph = FALSE)
+fviz_pca_biplot(res.pca, repel = TRUE)
