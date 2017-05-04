@@ -12,14 +12,31 @@ library(ggplot2)
 library(psych) # describe
 library(dbscan)
 
-df <- read.csv("segm.csv", sep=";")
+df <- read.csv("old_segm.csv", sep=";")
 colnames(df)[1] <- "daytime"
 df$transport <- NULL
 InterviewID <- df$InterviewID
 df$InterviewID <- NULL
 
-### dist
+########################################################################################################
 
+# categorical -> factors
+df$daytime <- mapvalues(as.factor(df$daytime), from = c("1", "2", "3", "4"), to = c("night","morning","day", "evening")) 
+
+multi <- grep("(a5_|a51_|a7_).*", colnames(df))
+df[multi] <- data.frame(apply(df[multi], 2, as.factor))
+
+df$a6from_1 <- as.factor(car::recode(df$a6from_1, "1='From_home'; 2='From_workplace'; 3:hi='From_other'"))
+df$a6to_1 <- as.factor(car::recode(df$a6to_1, "1='To_home'; 2='To_workplace'; 3:hi='To_other'"))
+df$a8_1 <- as.factor(car::recode(df$a8_1, "1='Me'; 2='Partner'; 3:hi='Pay_other'"))
+
+# continuos NA to median
+df$a91_1.2[is.na(df$a91_1.2)] <- median(df$a91_1.2, na.rm = T)
+df$a91_1.2 <- as.factor(car::recode(df$a91_1.2, "0:14='0-14m'; 
+                               15:29='15-29m'; 
+                               30:hi='30m+'"))
+
+### dist
 gower_dist <- daisy(df, metric = "gower")
 
 ### silhouette plot
@@ -64,6 +81,8 @@ hclust.5 <- cutree(hclust(gower_dist, method="ward.D2"), 5)
 hclust.6 <- cutree(hclust(gower_dist, method="ward.D2"), 6)
 hclust.7 <- cutree(hclust(gower_dist, method="ward.D2"), 7)
 
+table(hclust.4)
+
 ### dbscan
 
 dbscan.fit <- dbscan(gower_dist, eps=0.05, minPts = 20 )
@@ -97,9 +116,19 @@ resp_clusters <-
             hclust.6=get.mode(hclust.6),
             hclust.7=get.mode(hclust.7))
 
-write.csv2(resp_clusters, paste(path, "resp_clusters.csv"), row.names = F)
+write.csv2(resp_clusters, paste(path, "resp_clusters.csv", sep=""), row.names = F)
+
+### write output 
+
+# pam <- cbind(pam.3$clustering, pam.4$clustering, pam.5$clustering)
+# colnames(pam) <- c("pam.3","pam.4","pam.5")
+
+case_id <- 1:dim(df)[1]
+df_clusters <- cbind(case_id, hclust.3, hclust.4, hclust.5, hclust.6, hclust.7)
+write.csv2(df_clusters, paste(path, "clusters.csv", sep=""), row.names = F)
 
 ### t-sne plot
+
 tsne_obj <- Rtsne(gower_dist, is_distance = TRUE)
 
 plot_tsne <- function(tsne_obj, clusters) {
@@ -114,13 +143,5 @@ ggplot(aes(x = X, y = Y), data = tsne_data) +
   geom_point(aes(color = cluster))
 
 
-### write output 
 
-# pam <- cbind(pam.3$clustering, pam.4$clustering, pam.5$clustering)
-# colnames(pam) <- c("pam.3","pam.4","pam.5")
-
-case_id <- 1:dim(df)[1]
-df_clusters <- cbind(case_id, hclust.3, hclust.4, hclust.5, hclust.6, hclust.7)
-
-write.csv2(df_clusters, paste(path, "clusters.csv"), row.names = F)
 
