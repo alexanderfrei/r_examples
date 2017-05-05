@@ -41,27 +41,27 @@ gower_dist <- daisy(df, metric = "gower")
 
 ### silhouette plot
 
-silhouette_plot <- function(dist_matrix, clust_method){
-
-  library(cluster)
-  
-  sil_width <- c(NA)
-  for(i in 2:10){
-    if (clust_method == "pam"){
-      model <- pam(dist_matrix, diss = TRUE, k = i)  
-    }
-    if (clust_method == "hclust"){
-      model <- cutree(hclust(dist_matrix, method="ward.D2"), i)
-    }  
-    sil_width[i] <- summary(silhouette(model, dist_matrix))$avg.width
-  }
-  
-  # Plot sihouette width
-  plot(1:10, sil_width,
-       xlab = "Number of clusters",
-       ylab = "Silhouette Width")
-  lines(1:10, sil_width)
-}
+# silhouette_plot <- function(dist_matrix, clust_method){
+# 
+#   library(cluster)
+#   
+#   sil_width <- c(NA)
+#   for(i in 2:10){
+#     if (clust_method == "pam"){
+#       model <- pam(dist_matrix, diss = TRUE, k = i)  
+#     }
+#     if (clust_method == "hclust"){
+#       model <- cutree(hclust(dist_matrix, method="ward.D2"), i)
+#     }  
+#     sil_width[i] <- summary(silhouette(model, dist_matrix))$avg.width
+#   }
+#   
+#   # Plot sihouette width
+#   plot(1:10, sil_width,
+#        xlab = "Number of clusters",
+#        ylab = "Silhouette Width")
+#   lines(1:10, sil_width)
+# }
 
 # silhouette_plot(gower_dist, "hclust")
 # silhouette_plot(gower_dist, "pam")
@@ -81,7 +81,6 @@ hclust.5 <- cutree(hclust(gower_dist, method="ward.D2"), 5)
 hclust.6 <- cutree(hclust(gower_dist, method="ward.D2"), 6)
 hclust.7 <- cutree(hclust(gower_dist, method="ward.D2"), 7)
 
-table(hclust.4)
 
 ### dbscan
 
