@@ -1,10 +1,6 @@
-ibrary(tree)
 library(rpart)
 library(rpart.plot)
-
-iris.tree <- tree(iris[,5] ~ ., iris[,-5])
-plot(iris.tree)
-text(iris.tree)
+library(rattle)
 
 fit <- rpart(Kyphosis ~ Age + Number + Start,
              method="class", data=kyphosis)

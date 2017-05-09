@@ -1,6 +1,8 @@
 seg.raw <- read.csv("data/seg.csv")
 seg.df  <- seg.raw[ , -7]
 
+describe(seg.df)
+
 # a simple function to report means by group
 seg.summ <- function(data, groups) {
   aggregate(data, list(groups), function(x) mean(as.numeric(x)))  

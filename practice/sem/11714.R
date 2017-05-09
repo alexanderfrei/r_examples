@@ -105,12 +105,16 @@ fit.b5.1 <- sem(model.b5.1, data=b5, Std.lv=T)
 fit.b5.2 <- sem(model.b5.2, data=b5, Std.lv=T)
 fit.b5.3 <- sem(model.b5.3, data=b5, Std.lv=T)
 fit.b5.4 <- sem(model.b5.1, data=b5, Std.lv=T, meanstructure = TRUE)
-pdf("output/11714/block5.pdf", width=15)
+# pdf("output/11714/block5.pdf", width=15)
+# semPaths(fit.b5.1, what="std", fade=T, residuals=FALSE, 
+#          edge.width = 0.3, edge.color="black", edge.label.cex = 0.8, 
+#          nCharNodes=7, sizeMan = 5, sizeLat = 7, label.prop = 0.8)
+# dev.off()
+# summary(fit.b5.4, fit.measures=TRUE)
+
 semPaths(fit.b5.1, what="std", fade=T, residuals=FALSE, 
          edge.width = 0.3, edge.color="black", edge.label.cex = 0.8, 
          nCharNodes=7, sizeMan = 5, sizeLat = 7, label.prop = 0.8)
-dev.off()
-summary(fit.b5.4, fit.measures=TRUE)
 
 AIC(fit.b5.1,fit.b5.2,fit.b5.3,fit.b5.4)
 coef(fit.b5.1)
