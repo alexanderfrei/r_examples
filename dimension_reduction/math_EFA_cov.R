@@ -10,7 +10,7 @@ colnames(df) <- col.names
 root <- df
 
 # cov
-S <- cov(root[,2:5])
+S <- cov(root[,2:3])
 # eigen
 S.eigen <- eigen(S)
 
