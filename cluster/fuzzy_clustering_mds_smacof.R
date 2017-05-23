@@ -16,6 +16,7 @@ plot(MDS, type = "n")
 text(MDS, label = rownames(MDS), col = rgb((FANNY$membership)^(1/1)))
 
 # From http://stackoverflow.com/a/7661309/479554
+
 labelFrame <- data.frame(X = MDS[, 1], Y = MDS[, 2], Label = rownames(MDS))
 labelFrame <- transform(labelFrame,
                         w = strwidth(rownames(MDS))*1,
@@ -30,5 +31,5 @@ zp1 <- zp1 + geom_rect(aes(xmin = X - w/2, xmax = X + w/2,
 zp1 <- zp1 + geom_text(aes(x = X, y = Y, label = Label),
                        size = 3, colour = "WHITE")
 zp1 <- zp1 + scale_fill_identity()
-zp1 <- zp1 + theme_classic()
+zp1 <- zp1 + theme_gray()
 print(zp1)
