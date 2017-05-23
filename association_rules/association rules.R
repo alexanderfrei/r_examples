@@ -1,4 +1,3 @@
-
 library("arules")
 library("arulesViz")
 
