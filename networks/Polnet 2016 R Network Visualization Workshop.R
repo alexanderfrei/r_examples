@@ -217,7 +217,7 @@ setwd("C:/polnet2016")
 
 # --DATASET 1: edgelist--
 
-setwd('./../../networks')
+setwd('./networks')
 nodes <- read.csv("./Data files/Dataset1-Media-Example-NODES.csv", header=T, as.is=T)
 links <- read.csv("./Data files/Dataset1-Media-Example-EDGES.csv", header=T, as.is=T)
 
@@ -921,15 +921,9 @@ library("htmlwidgets")
 head(links)
 head(nodes)
 
-nodes <- data.frame(id = 1:3)
-edges <- data.frame(from = c(1,2), to = c(1,3))
-visNetwork(nodes, edges)
-visNetwork
 # We can visualize the network right away - visNetwork() will accept 
 # our node and link data frames (it needs node data with an 'id' column,
 # and edge data with 'from' and 'to' columns).
-
-visNetwork(dot = 'dinetwork {1 -> 1 -> 2; 2 -> 3; 2 -- 4; 2 -> 1 }')
 
 visNetwork(nodes, links)
 

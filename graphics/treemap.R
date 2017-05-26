@@ -9,24 +9,26 @@ map.market(id=posts$id,
 
 library(treemap)
 library(RColorBrewer)
-pdf('graphics/result/treemap.pdf')
+
+pdf('graphics/result/treemap.pdf', width = 10, height = 8)
+
 treemap(posts,
-        title = "Cross post category by ID, rectangle size - number of comments",
-        title.legend = "Number of views",
         index=c("category","id"),
-        vSize="comments",
-        vColor="views",
+        vSize="comments", vColor="views",
         n = 4,
         type="manual",
         palette=brewer.pal(4,"OrRd"),
+        title = "Cross post category by ID, rectangle size - number of comments",
+        title.legend = "Number of views",
         bg.labels = "transparent", 
         align.labels = c("left", "top"),
+        overlap.labels = 0,
         #border.col = "white",
         #fontcolor.labels = "white"
         )
+
 dev.off()
-# ?treemap
-display.brewer.all(n=NULL, type="all", select=NULL, exact.n=TRUE)
-# library(colorspace)
-# pal <- choose_palette()
+
+
+?treemap
 
