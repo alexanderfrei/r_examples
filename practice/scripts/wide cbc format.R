@@ -43,8 +43,6 @@ wide.cbc.format <- function(cont_list=NULL, file="data.csv", none=T, csv=T) {
   colnames(df.full) <- gsub("att", "x", colnames)
   df.noref <- df.full[! colnames %in% to_drop]
   
-  
-  
   # write output
   if (csv) {
     write.table(df.full, "data_full.csv", sep=';', row.names=F)
@@ -54,6 +52,8 @@ wide.cbc.format <- function(cont_list=NULL, file="data.csv", none=T, csv=T) {
     list("df.full"=df.full, "df.noref"=df.noref)
   }
 }
+
+
 
 # setwd("c:\\R workspace\\r_examples\\practice\\data")
 # data <- read.csv("data.csv", sep=';')

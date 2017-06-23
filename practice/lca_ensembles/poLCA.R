@@ -19,15 +19,21 @@ seg.df.cut$income <- factor(ifelse(seg.df$income < median(seg.df$income),
 seg.df.cut$kids   <- factor(ifelse(seg.df$kids < median(seg.df$kids), 1, 2))
 summary(seg.df.cut)
 
+seg.df.cut
+
 # create a model formula
 seg.f <- with(seg.df.cut, 
-              cbind(age, gender, income, kids, ownHome, subscribe)~1)
+              cbind(age, gender, income, kids, ownHome)~subscribe)
 
 
 # fit the model
 library(poLCA)
 set.seed(02807)
+
 seg.LCA3 <- poLCA(seg.f, data=seg.df.cut, nclass=3)
+
+seg.LCA3$
+
 seg.LCA4 <- poLCA(seg.f, data=seg.df.cut, nclass=4)
 
 seg.LCA4$bic
@@ -56,3 +62,4 @@ adjustedRandIndex(seg.LCA3$predclass, seg.LCA4$predclass)
 # compare to known segments
 table(seg.raw$Segment, seg.LCA4$predclass)
 adjustedRandIndex(seg.raw$Segment, seg.LCA4$predclass)
+

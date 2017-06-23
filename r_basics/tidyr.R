@@ -11,6 +11,7 @@ df <- data_frame(id,x1,x2,x3)
 df_gt <- df %>% gather(x,v,x1:x3,factor_key = T)
 levels(df_gt$x)
 df_gt
+
 # SPREAD casestovars analog
 df_sp <- df_gt %>% spread(x, v)
 
