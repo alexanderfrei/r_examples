@@ -1,31 +1,36 @@
 setwd('./RSGHB/01 MNL')
 
+# ------------ data ------------
+
 library(RSGHB)
-library(dplyr)
-library(tidyr)
-library(dummies)
+library(splitstackshape)
+library(data.table)
 
 source("../prepare_cho_RSGHB.R")
 
 # ------------ data ------------
 
-df_long = read.csv("cho.csv", sep=";")
-df_long
-
 data = prepare.cho.rsghb("cho.csv", none = T)
 
-ID = data$att[1]
+# make design ID * tasks
 
-choice = data$cho[-c(1,2)] # delete id & task
+unique_ids = unique(data$cho[1])
+n_task = max(data$cho[2])
+ids = rep(unique_ids, n_task)
 
-att = data$att[-c(1,2)] # delete id & task
+choicedata = data.frame(ID = ids[order(ids),], 
+                        task = rep(1:n_task, length(unique_ids)))
+
+
+cho = data$cho[-c(1,2,3)] # choices
+
+# att
+att = data$att[-c(1,2,3)] 
 att = att[! colnames(att) %in% data$zero.levels] # delete future zero levels 
+n_item = max(data$att$item) # items num
+ncol = dim(att)[2]
 
-
-
-b = matrix(1:9, ncol=3)
-row.names(b) = 1:3
-b[rep(row.names(b), 5), ]
+nrow = length(unique(choicedata$ID)) * length(unique(choicedata$task))
 
 # ------------ model ------------
 
@@ -39,21 +44,19 @@ gVarNamesNormal <- colnames(att)
 # 3. negative log-normal
 # 4. normal with all values below zero massed at zero
 # 5. Johnson SB with a specified min and max
-# gDIST must have an entry for each value in gVarNamesNormal
 
-gDIST <- rep(1, dim(att)[2]) # choose distribution
+gDIST <- rep(1, ncol) # choose distribution
 
 # STARTING VALUES
 # The selection of the mean here is important when working with non-normal distributions
-svN <- rep(0, dim(att)[2])
+svN <- rep(0, ncol)
                     
 # ITERATION SETTINGS
-gNCREP    <- 10   # Number of iterations to use prior to convergence
-gNEREP    <- 10 	# Number of iterations to keep for averaging after convergence has been reached
+gNCREP    <- 10000   # Number of iterations to use prior to convergence
+gNEREP    <- 10000 	# Number of iterations to keep for averaging after convergence has been reached
 gNSKIP    <- 1			# Number of iterations to do in between retaining draws for averaging
 gINFOSKIP <- 100    # How frequently to print info about the iteration process
 
-# CONTROL LIST TO PASS TO doHB
 control <- list(
      modelname = modelname,
      gVarNamesNormal = gVarNamesNormal,
@@ -69,31 +72,55 @@ control <- list(
 
 # ------------ likelihood function ------------
 
+id_x_task = data$att$ID * data$att$task
+v = data.table(task = id_x_task)
+
 likelihood <- function(fc, b) {
   
-  b = as.matrix(b)
-  print(dim(b))
-  return(b)
+  # prepare betas
+  b = as.data.frame(b)
+  b$freq = n_item
+  betas = expandRows(b, "freq")
+  betas['freq'] = NULL
+  
+  # exp(v)
+
+  v$exp_v = exp(apply(betas * att, 1, sum))
+
+  # exp(v) * cho
+
+  prod_cho = v$exp_v * cho
+  colnames(prod_cho) = "prod_cho"
+  v = cbind(v, prod_cho)
+
+  # aggregate p = exp(v) * cho / sum(exp(v))
+
+  p = v[, list(p=sum(prod_cho) / sum(exp_v)), by = 'task']
+
+  return(p$p)
+  
 }
 
 # Estimate the model
-model <- doHB(likelihood, ID, control)
-
-b = as.matrix(runif(23,-1,1))
-att_m = as.matrix(att)
-dim(att_m)
-dim(att_m %*% b)
+model <- doHB(likelihood, choicedata, control)
 
 # ------------ output ------------
-
-# Plot model statistics
-plot(model)
-# plot(model, type = "A")
 
 # Save in CSV format (Sawtooth-esque)
 writeModel(model)
 
-# Save model object
-# save(model, file = paste0(model$modelname, ".RData"))
+# ------------ compare ------------
+
+uti = read.csv("sawtooth_utilities.csv", sep = "\t")
+uti = uti[3:26]
+uti = as.data.frame(apply(uti, 2, function(x) as.numeric(gsub(",", ".", as.character(x)))))
+
+df = read.csv("MNL_B.csv", sep = ",")
+B = cbind(df[,2:23], 
+          att1_23=0, # add zero level 
+          none=df[,'none'])
+
+B = B - apply(B, 1, mean)
+mean(sapply(seq.int(dim(B)[1]), function(i) cor(t(B[i,]), t(uti[i,]))))
 
 
