@@ -1,121 +1,133 @@
-setwd("C:\\R workspace\\r_examples\\texts\\CE\\data")
+Sys.setlocale("LC_ALL", "Russian")
 
 # ***
 
-library(igraph)
-library(visNetwork)
-library(htmlwidgets)
-
-# ***
-
-word_graph <- function(data, word_treshold, conn_treshold, 
-                       fontsize=1.2, bubblesize=0.01, 
-                       png_name="example.png", 
-                       to_remove=NULL,
-                       plot_size=2000) {
+word_graph <- function(data, min_word_freq, min_connection, 
+                       name ="example.png", to_remove=NULL,
+                       edge_degree = 0,
+                       random_seed = 1) {
   
   if (!is.null(to_remove)) {
     `%ni%` <- Negate(`%in%`)
     data = subset(data, select = names(data) %ni% to_remove)
   }
   
-  bag_of_words = as.matrix(t(data))
-  bag_of_words.m2 <- bag_of_words %*% t(bag_of_words)
+  data = as.matrix(t(data))
+  conn_matrix = data %*% t(data)
   
-  # filters
-  bag_of_words.m2 <- bag_of_words.m2[rowSums(bag_of_words) >= word_treshold, rowSums(bag_of_words) >= word_treshold]
-  power = diag(bag_of_words.m2)
-  bag_of_words.m2 = ifelse(bag_of_words.m2 >= conn_treshold, bag_of_words.m2, 0)
-  diag(bag_of_words.m2) = power 
+  # filter 
+  conn_matrix = conn_matrix[diag(conn_matrix) > min_word_freq, 
+                            diag(conn_matrix) > min_word_freq]
+  conn_matrix = ifelse(conn_matrix >= min_connection, conn_matrix, 0)
   
-  # remove loops
-  bag_of_words.graph <- graph.adjacency(bag_of_words.m2, weighted=TRUE, mode="undirected")
-  bag_of_words.graph <- simplify(bag_of_words.graph)
+  # delete nodes with no links 
   
-  # set labels and degrees of vertices
-  V(bag_of_words.graph)$label <- V(bag_of_words.graph)$name
-  V(bag_of_words.graph)$degree <- degree(bag_of_words.graph)
+  connected_links = apply(conn_matrix, 1, function(x){sum(x>0)}) > 1
+  conn_matrix = conn_matrix[connected_links, connected_links]
   
-  # plot layout fruchterman.reingold
-  layout1 <- layout.fruchterman.reingold(bag_of_words.graph)
-  V(bag_of_words.graph)$label.cex <- fontsize
-  plot(bag_of_words.graph, layout=layout1, vertex.size=power * bubblesize,
-       vertex.label.color="black", vertex.color = "lightblue")
-  title(paste("Минимальная частота слова: ", as.character(word_treshold), 
-              "\nЧастота самого популярного слова:", as.character(max(power))))
+  # nodes
   
-  # save plot 
-  V(bag_of_words.graph)$label.cex <- fontsize * 2.2
-  png(png_name, plot_size, plot_size)
-  plot(bag_of_words.graph, layout=layout1, vertex.size=power * bubblesize,
-       vertex.label.color="black", vertex.color = "lightblue")
-  title(paste("Минимальная частота слова: ", as.character(word_treshold), 
-              "\nЧастота самого популярного слова:", as.character(max(power))),
-        cex.main=5, line = -5)
-  dev.off()
+  id = seq(1, dim(conn_matrix)[1]) # id
+  label = row.names(conn_matrix) # words
+  weight = diag(conn_matrix) # freq of words
   
-  bag_of_words.m2
+  nodes = as.data.frame(cbind(id, label, weight, deparse.level = 1),
+                        row.names = F)
+  
+  nodes$weight = as.numeric(as.character(nodes$weight))
+  
+  # links 
+  
+  n = dim(conn_matrix)[1]
+  from = c()
+  to = c()
+  weight = c()
+  
+  for (i in seq(1, n)) {
+    for (j in seq(1, n)) {
+      if (conn_matrix[i, j] > 0 && i != j) {
+        from = c(from, i)
+        to = c(to, j)
+        weight = c(weight, conn_matrix[i, j])
+      }
+    }
+  }
+  
+  type = rep('hyperlink', length(weight))
+  arrows = rep('', length(weight))
+  
+  links = as.data.frame(cbind(from, to, type, arrows, weight, deparse.level = 1),
+                        row.names = F)
+  
+  links$weight = as.numeric(as.character(links$weight))
+  
+  #########
+  
+  nodes$size = 20 * nodes$weight / max(nodes$weight)
+  # links$width = 3 * links$weight / max(links$weight)
+  links$width = 0.5
+  links$smooth <- FALSE
+  
+  title = paste("Частота самого популярного слова:", max(diag(conn_matrix)), sep = " ")
+  net = visNetwork(nodes, links, height = "1000px", width = "100%", 
+                   main = title) %>% 
+    visPhysics(enabled=F) %>% 
+    visOptions(highlightNearest = list('enabled'= T, 'degree'= edge_degree), autoResize=T) %>%
+    visLayout(randomSeed = random_seed)
+  saveWidget(net, name)
+  
+  print(paste("Всего слов:", dim(nodes)[1], sep = " "))
+  visNetwork(nodes, links) %>% visPhysics(enabled=F) %>% visLayout(randomSeed = 1) %>% 
+    visLayout(randomSeed = random_seed)
   
 }
 
+# ?visOptions
 # ***
 
-df = read.csv("./c110.csv", sep = ",", header = T, stringsAsFactors = F)
-word_graph(data = df, 
-           fontsize = 1.3, 
-           word_treshold = 200, 
-           conn_treshold = 150, 
-           bubblesize = 0.015, 
-           png_name = "Most relevant.png", 
-           plot_size = 2000,
-           to_remove=c("позитива", "радостные", "отвлечься"))
+setwd("./texts/graphs")
+library(igraph)
+library(visNetwork)
+library(htmlwidgets)
 
 # ***
 
-df = read.csv("./c111.csv", sep = ",", header = T, stringsAsFactors = F)
+df = read.csv("./bag of words/c110.csv", sep = ",", header = T, stringsAsFactors = F)
 word_graph(data = df, 
-           fontsize = 1.2, 
-           word_treshold = 75, 
-           conn_treshold = 35, 
-           bubblesize = 0.025, 
-           png_name = "Least relevant.png",
-           plot_size = 1500, 
-           to_remove = c("особенным", "удел"))
+           min_word_freq = 200, 
+           min_connection = 150, 
+           name = "Most relevant.html", 
+           random_seed = 777)
 
 # ***
 
-df = read.csv("./c112.csv", sep = ",", header = T, stringsAsFactors = F)
+df = read.csv("./bag of words/c111.csv", sep = ",", header = T, stringsAsFactors = F)
 word_graph(data = df, 
-           fontsize = 1.2, 
-           word_treshold = 75, 
-           conn_treshold = 40, 
-           bubblesize = 0.025, 
-           png_name = "Unbelievable.png",
-           to_remove = "особенным",
-           plot_size = 1600)
+           min_word_freq = 80, 
+           min_connection = 40, 
+           name = "Least relevant.html")
+
+# ***
+
+df = read.csv("./bag of words/c112.csv", sep = ",", header = T, stringsAsFactors = F)
+word_graph(data = df, 
+           min_word_freq = 100, 
+           min_connection = 60, 
+           name = "Unbelievable.html")
 
 # ***
 
 
-df = read.csv("./c113.csv", sep = ",", header = T, stringsAsFactors = F)
+df = read.csv("./bag of words/c113.csv", sep = ",", header = T, stringsAsFactors = F)
 word_graph(data = df, 
-           fontsize = 1.2, 
-           word_treshold = 40, 
-           conn_treshold = 10, 
-           bubblesize = 0.05, 
-           png_name = "Unclear.png",
-           plot_size = 1500, 
-           to_remove = "цена")
+           min_word_freq = 35, 
+           min_connection = 20, 
+           name = "Unclear.html", random_seed = 78)
 
 # ***
 
-df = read.csv("./c115.csv", sep = ",", header = T, stringsAsFactors = F)
+df = read.csv("./bag of words/c115.csv", sep = ",", header = T, stringsAsFactors = F)
 word_graph(data = df, 
-           fontsize = 1.2, 
-           word_treshold = 75, 
-           conn_treshold =25, 
-           bubblesize = 0.025, 
-           png_name = "New and different.png", 
-           plot_size = 1500, 
-           to_remove = "утро")
-в
+           min_word_freq = 75, 
+           min_connection = 40, 
+           name = "New and different.html", random_seed = 1)
