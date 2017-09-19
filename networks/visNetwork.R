@@ -17,6 +17,8 @@ library("htmlwidgets")
 net = visNetwork(nodes, links, height="600px", width="100%", main="Network!")
 saveWidget(net, "network_test.html")
 
+links
+
 # ?visNodes
 # ?visEdges
 

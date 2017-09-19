@@ -8,3 +8,4 @@ seg.fac$age <- cut(seg.fac$age,
                    labels=c("19-24", "25-34", "35-54", "55-64", "65+"), 
                    right=FALSE, ordered_result=TRUE)
 summary(seg.fac$age)
+
